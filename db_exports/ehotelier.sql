@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2022 at 08:52 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Apr 26, 2022 at 09:16 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `buffet_reservation` (
   `capacity` int(11) NOT NULL,
   `date` date NOT NULL,
   `slot` enum('breakfast','lunch','dinner') NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'pending',
   `is_closed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
