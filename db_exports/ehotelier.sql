@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2022 at 09:16 PM
+-- Generation Time: May 08, 2022 at 10:58 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.11
 
@@ -46,11 +46,18 @@ CREATE TABLE `buffet_reservation` (
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
   `is_closed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `username`, `password`, `name`, `contact_no`, `is_closed`) VALUES
+(1, 'user1', '$2y$10$uvBzhBeL/ia38OGw4t7e/u2B1Z5LtfliVdPERZjjg7j8nlf5M3YRO', 'Test User', '0711122123', 0);
 
 -- --------------------------------------------------------
 
@@ -239,7 +246,7 @@ ALTER TABLE `buffet_reservation`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customer_request`
