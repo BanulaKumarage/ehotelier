@@ -122,19 +122,16 @@
             $limit = '';
 
             // added to avoid closed accounts
-            if($table === 'usertable' || $table === 'pharmacytable'){
-                if (isset($params['conditions'])) {
-                    $cond = (is_array($params['conditions']))? join(' AND ' ,$params['conditions']).' AND is_closed=?':$params['conditions'].' AND is_closed=?';
-                    $params['conditions'] = $cond;
-                    if(isset($params['bind'])){
-                        array_push($params['bind'],0);
-                    }else{
-                        $params['bind'][] = 0;
+            if (isset($params['conditions'])){
+                if (is_array($params['conditions'])){
+                    foreach ($params['conditions'] as $condition) {
+                        $conditionString .= ' '.$condition.' AND';
                     }
-                    
-                }else{
-                    $params['conditions'] = 'is_closed=?';
-                    $params['bind'] = [0];
+                    $conditionString = trim($conditionString);
+                    $conditionString = rtrim($conditionString,' AND');
+                    // dnd($params['conditions']);
+                }else {
+                    $conditionString = $params['conditions'];
                 }
             }
 

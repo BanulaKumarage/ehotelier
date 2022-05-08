@@ -9,7 +9,7 @@ class Model
         $this->_db = DB::getInstance(HOST,DB_NAME,DB_USER,DB_PASSWORD);
         $this->_table = $table;
         $this->_setTableColumns();
-        $this->_modelName = ucwords(rtrim($this->_table,'table'));
+        $this->_modelName = ucwords($this->_table);
     }
 
     protected function _setTableColumns()
@@ -35,7 +35,7 @@ class Model
         if (!$resultsQuery) return $results;
         //dnd($resultsQuery);
         foreach ($resultsQuery as $result) {
-            $obj = ($this->_modelName === 'Item')? new $this->_modelName(DummyItem::getInstance(-1)) :new $this->_modelName($this->_table);
+            $obj = new $this->_modelName($this->_table);
             $obj->populateObjData($result);
             $results[] = $obj;
         }
