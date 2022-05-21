@@ -18,7 +18,7 @@ function autoload($className)
     } elseif (file_exists(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php')) {
         require_once(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php');
     }else {
-        include(ROOT.DS.'app'.DS.'views'.DS.'home'.DS.'404Error'.'.php');
+        echo ($className." doesn't exist");
         die();
     }
 }

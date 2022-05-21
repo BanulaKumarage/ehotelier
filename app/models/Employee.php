@@ -12,7 +12,7 @@ class Employee extends Model{
 
     public function findByUserName($username)
     {
-        $this->findFirst(['conditions' => 'username=?', 'bind' => [$username]]);
+        $this->findFirst(['conditions' => 'username=? and is_closed=?', 'bind' => [$username,0]]);
     }
 
     public static function currentLoggedInEmployee()

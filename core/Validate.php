@@ -158,10 +158,10 @@ class Validate
 
     public function dateCheck($startDate,$endDate){
         if($startDate>=$endDate){
-            $this->addError(["Ending Date must be after the Starting Date"]);
+            $this->addError(["Check-in Date must be after the Check-out Date"]);
         }
-        if($startDate < date('d/m/Y')){
-            $this->addError(["Starting Date must be after the Current Date".date('Y/m/d')]);
+        if($startDate <= date('Y-m-d')){
+            $this->addError(["Check-in Date must be after the Current Date ".date('Y/m/d')]);
         }
     }
 
