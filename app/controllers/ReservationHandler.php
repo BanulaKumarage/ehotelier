@@ -8,7 +8,7 @@ class ReservationHandler extends Controller
         parent::__construct($controller, $action);
         $this->load_model('Room_reservation');
         $this->load_model('Room');
-        // $this->load_model('Buffet_reservation');
+        $this->load_model('Buffet_reservation');
     }
 
     public function roomreservationAction()
@@ -44,8 +44,24 @@ class ReservationHandler extends Controller
 
     public function buffetreservationAction()
     {
+        $validation = new Validate();
         if ($_POST) {
-            //
+            $validation->check($_POST,[
+                'capacity'=>[
+                    'display'=>"Number of People",
+                    'is_numeric'=>true
+                ]
+            ]);
+            $validation->currentDatecheck($_POST['date']);
+
+            if ($validation->passed()){
+                $this->Buffet_reservationModel->reserve($_POST);
+               
+                Router::redirect("CustomerDashboard");
+            }else {
+                $this->view->displayErrors = $validation->displayErrors();
+                $this->view->render('reservation/buffet');
+            }
         } else {
             $this->view->render('reservation/buffet');
         }

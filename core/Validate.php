@@ -165,6 +165,12 @@ class Validate
         }
     }
 
+    public function currentDatecheck($date){
+        if($date <= date('Y-m-d')){
+            $this->addError(["Check-in Date must be after the Current Date ".date('Y/m/d')]);
+        }
+    }
+
     public function imageCheck($extention){
         if( $extention!= "jpg" && $extention != "png" && $extention != "jpeg" && $extention != "gif" ) {
             $this->addError(["Sorry, only JPG, JPEG, PNG & GIF files are allowed."]);

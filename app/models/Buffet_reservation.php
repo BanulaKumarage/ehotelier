@@ -1,0 +1,20 @@
+<?php 
+
+
+class Buffet_reservation extends Model{
+
+    public function __construct()
+    {
+        $table = 'buffet_reservation';
+        parent::__construct($table);
+    }
+
+    public function reserve($params){
+        $params['status'] = 'pending';
+        $params['customer_id'] = Customer::currentLoggedInCustomer()->id;
+        $params['is_closed'] = 0;
+        $this->assign($params);
+        $this->save();
+    }
+
+}
