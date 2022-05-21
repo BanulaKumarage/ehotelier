@@ -1,12 +1,12 @@
 <?php
 
-class Customer extends Model{
+class Employee extends Model{
 
-    public static $currentLoggedInCustomer = null;
+    public static $currentLoggedInEmployee = null;
 
     public function __construct()
     {
-        $table = 'customer';
+        $table = 'employee';
         parent::__construct($table);
     }
 
@@ -15,24 +15,26 @@ class Customer extends Model{
         $this->findFirst(['conditions' => 'username=?', 'bind' => [$username]]);
     }
 
-    public static function currentLoggedInCustomer()
+    public static function currentLoggedInEmployee()
     {
-        $user = new Customer();
+        $user = new Employee();
         $user->findByUserName(Session::get('username'));
-        self::$currentLoggedInCustomer = $user;
-        return self::$currentLoggedInCustomer;
+        self::$currentLoggedInEmployee = $user;
+        return self::$currentLoggedInEmployee;
     }
 
     public function login(){
         Session::set($this->_sessionName,$this->id);
         Session::set('username',$this->username);
-        Session::set('customername',$this->name);
+        Session::set('employeename',$this->name);
+        Session::set('role',$this->role);
     }
 
     public function logout()
     {
         Session::delete();
-        self::$currentLoggedInCustomer = null;
+        self::$currentLoggedInEmployee = null;
         return true;
     }
+
 }

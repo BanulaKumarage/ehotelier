@@ -7,9 +7,10 @@
     <title>Customer Dashboard</title>
 </head>
 <body>
-    <h1><?= $_SESSION['customername'] ?></h1>
+    <h1><?= $_SESSION['employeename']." : ".ucwords($_SESSION['role']) ?></h1>
 
     <br><br>
-    <a href="<?=SROOT?>CustomerRegister/logout">Logout</a>
+    <a href="<?=SROOT?>EmployeeRegister/logout">Logout</a>
+
 </body>
 </html>
