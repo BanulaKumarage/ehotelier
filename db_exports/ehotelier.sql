@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2022 at 10:58 AM
+-- Generation Time: May 22, 2022 at 08:01 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.11
 
@@ -34,8 +34,16 @@ CREATE TABLE `buffet_reservation` (
   `date` date NOT NULL,
   `slot` enum('breakfast','lunch','dinner') NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'pending',
-  `is_closed` tinyint(1) NOT NULL DEFAULT 0
+  `is_closed` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buffet_reservation`
+--
+
+INSERT INTO `buffet_reservation` (`id`, `customer_id`, `capacity`, `date`, `slot`, `status`, `is_closed`) VALUES
+(1, 1, 4, '2022-05-26', 'dinner', 'pending', 0),
+(2, 1, 5, '2022-05-27', 'lunch', 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -57,7 +65,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `username`, `password`, `name`, `contact_no`, `is_closed`) VALUES
-(1, 'user1', '$2y$10$uvBzhBeL/ia38OGw4t7e/u2B1Z5LtfliVdPERZjjg7j8nlf5M3YRO', 'Test User', '0711122123', 0);
+(1, 'user1', '$2y$10$uvBzhBeL/ia38OGw4t7e/u2B1Z5LtfliVdPERZjjg7j8nlf5M3YRO', 'Harry Potter', '0711122123', 0);
 
 -- --------------------------------------------------------
 
@@ -83,14 +91,21 @@ CREATE TABLE `customer_request` (
 CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` enum('manager','customercareofficer','worker') NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'available',
   `is_closed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `username`, `password`, `name`, `contact_no`, `email`, `role`, `status`, `is_closed`) VALUES
+(1, 'employee1', '$2y$10$uvBzhBeL/ia38OGw4t7e/u2B1Z5LtfliVdPERZjjg7j8nlf5M3YRO', 'Ben Tenison', '0711111111', 'a@gmail.com', 'manager', 'available', 0);
 
 -- --------------------------------------------------------
 
@@ -146,9 +161,20 @@ CREATE TABLE `room` (
   `id` int(11) NOT NULL,
   `capacity` int(11) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `last_service` timestamp NOT NULL DEFAULT current_timestamp()
+  `status` varchar(50) NOT NULL DEFAULT 'vacant',
+  `last_service` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `capacity`, `type`, `status`, `last_service`) VALUES
+(1, 4, 'Suite', 'occupied', NULL),
+(2, 4, 'Quad', 'vacant', NULL),
+(3, 2, 'Deluxe', 'occupied', NULL),
+(4, 2, 'Premium Deluxe', 'vacant', NULL),
+(5, 2, 'Deluxe', 'occupied', NULL);
 
 -- --------------------------------------------------------
 
@@ -158,13 +184,28 @@ CREATE TABLE `room` (
 
 CREATE TABLE `room_reservation` (
   `id` int(11) NOT NULL,
+  `room_ids` varchar(50) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `room_id` int(11) NOT NULL,
   `check_in_date` date NOT NULL,
   `check_out_date` date NOT NULL,
   `type` enum('fullboard','halfboard','bedandbreakfast') NOT NULL,
   `status` enum('reserved','paid') NOT NULL DEFAULT 'reserved'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `room_reservation`
+--
+
+INSERT INTO `room_reservation` (`id`, `room_ids`, `customer_id`, `check_in_date`, `check_out_date`, `type`, `status`) VALUES
+(4, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(5, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(6, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(7, '1', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(8, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(9, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(10, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(11, '3,5', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved'),
+(12, '1', 1, '2022-05-23', '2022-05-24', 'halfboard', 'reserved');
 
 --
 -- Indexes for dumped tables
@@ -229,8 +270,7 @@ ALTER TABLE `room`
 --
 ALTER TABLE `room_reservation`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `room_id` (`room_id`);
+  ADD KEY `customer_id` (`customer_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -240,7 +280,7 @@ ALTER TABLE `room_reservation`
 -- AUTO_INCREMENT for table `buffet_reservation`
 --
 ALTER TABLE `buffet_reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -258,7 +298,7 @@ ALTER TABLE `customer_request`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee_assignment`
@@ -282,13 +322,13 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `room_reservation`
 --
 ALTER TABLE `room_reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -324,8 +364,7 @@ ALTER TABLE `rating`
 -- Constraints for table `room_reservation`
 --
 ALTER TABLE `room_reservation`
-  ADD CONSTRAINT `room_reservation_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
-  ADD CONSTRAINT `room_reservation_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`);
+  ADD CONSTRAINT `room_reservation_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
