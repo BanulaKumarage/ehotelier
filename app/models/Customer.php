@@ -35,4 +35,11 @@ class Customer extends Model{
         self::$currentLoggedInCustomer = null;
         return true;
     }
+
+    public function registerNewCustomer($params){
+        $params['is_closed'] = 0;
+        $this->assign($params);
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        $this->save();
+    }
 }

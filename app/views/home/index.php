@@ -7,6 +7,7 @@
     <title>Home</title>
 </head>
 <body>
-    <a href="<?=SROOT?>/CustomerRegister/login">Customer Login</a>
+    <a href="<?=SROOT?>/CustomerRegister/login">Customer Login</a><br>
+    <a href="<?=SROOT?>/CustomerRegister/signup">Join now</a>
 </body>
 </html>
