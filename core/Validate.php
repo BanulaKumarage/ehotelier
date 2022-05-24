@@ -6,7 +6,7 @@ class Validate
 
     public function __construct()
     {
-        $this->_db = DB::getInstance(HOST,DB_NAME,DB_USER,DB_PASSWORD);
+        $this->_db = DB::getInstance(HOST, DB_NAME, DB_USER, DB_PASSWORD);
     }
 
     public function check($source, $items = [])
@@ -66,55 +66,55 @@ class Validate
                             }
                             break;
                         case 'valid_contact':
-                            // $contact_arr=explode('-',$value);
-                            // if(count($contact_arr)!==2){
-                            //     $this->addError(["{$display} must be in valid format (012-3456789)", $item]);
-                            // }else{
-                            //     if(strlen($contact_arr[0])!==3 || strlen($contact_arr[1])!==7 || !is_numeric($contact_arr[0]) || !is_numeric($contact_arr[1])){
-                            //         $this->addError(["{$display} must be in valid format (012-3456789)", $item]);
-                            //     }
-                            // }
-                            if (!self::checkPhoneNo($value)){
+                            if (!self::checkPhoneNo($value)) {
                                 $this->addError(["{$display} can only contain 10 characters including numbers,- and spaces", $item]);
                             }
                             break;
                         case 'valid_idNo':
-                            if (!self::checkIdNo($value)){
+                            if (!self::checkIdNo($value)) {
                                 $this->addError(["Enter a valid {$display}", $item]);
                             }
+                            break;
+                        case 'valid_reservationid':
+                            $table = 'room_reservation';
+                            $check = $this->_db->query("SELECT * FROM {$table} WHERE id = ? and status != 'closed'", [$value]);
+                            if (!$check->count()) {
+                                $this->addError(["Enter a valid {$display}", $item]);
+                            }
+                            break;
                     }
                 }
             }
         }
 
-        if (empty($this->errors())){
+        if (empty($this->errors())) {
             $this->_passed = true;
         }
         return $this;
-
-        
     }
 
-    public function errors() {
+    public function errors()
+    {
         return $this->_errors;
     }
 
-    public function passed(){
+    public function passed()
+    {
         return $this->_passed;
     }
 
-    public function displayErrors(){
+    public function displayErrors()
+    {
         $html = '<ul class="bg-danger">';
-        foreach ($this->_errors as $error){
-            if (is_array($error)){
-                $html  .= '<li class="text-danger">'.$error[0].'</li>';
+        foreach ($this->_errors as $error) {
+            if (is_array($error)) {
+                $html  .= '<li class="text-danger">' . $error[0] . '</li>';
                 // $html .='<script>jQuery("document").ready(function(){jQuery("#'.$error[1].'").parent().closest("div").addClass("has-error");});</script>';
-            }else{
-                $html .= '<li class=text-danger>'.$error.'</li>';
+            } else {
+                $html .= '<li class=text-danger>' . $error . '</li>';
             }
-             
         }
-        $html .='</ul>';
+        $html .= '</ul>';
         return $html;
     }
 
@@ -128,51 +128,56 @@ class Validate
         }
     }
 
-    public static function checkPhoneNo($no){
-        $no = str_replace(array('-'," "),'',$no);
+    public static function checkPhoneNo($no)
+    {
+        $no = str_replace(array('-', " "), '', $no);
 
         if (strlen($no) == 10 && is_numeric($no)) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    public static function checkIdNo($no){
-        if (str_contains($no,'V') || str_contains($no,'v')){
+    public static function checkIdNo($no)
+    {
+        if (str_contains($no, 'V') || str_contains($no, 'v')) {
             $no = trim($no);
-            $no = substr($no,0,strlen($no)-1);
+            $no = substr($no, 0, strlen($no) - 1);
             if (strlen($no) == 9 && is_numeric($no)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
-        }else{
+        } else {
             if (strlen($no) == 12 && is_numeric($no)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }
     }
 
-    public function dateCheck($startDate,$endDate){
-        if($startDate>=$endDate){
+    public function dateCheck($startDate, $endDate)
+    {
+        if ($startDate >= $endDate) {
             $this->addError(["Check-in Date must be after the Check-out Date"]);
         }
-        if($startDate <= date('Y-m-d')){
-            $this->addError(["Check-in Date must be after the Current Date ".date('Y/m/d')]);
+        if ($startDate <= date('Y-m-d')) {
+            $this->addError(["Check-in Date must be after the Current Date " . date('Y/m/d')]);
         }
     }
 
-    public function currentDatecheck($date){
-        if($date <= date('Y-m-d')){
-            $this->addError(["Check-in Date must be after the Current Date ".date('Y/m/d')]);
+    public function currentDatecheck($date)
+    {
+        if ($date <= date('Y-m-d')) {
+            $this->addError(["Check-in Date must be after the Current Date " . date('Y/m/d')]);
         }
     }
 
-    public function imageCheck($extention){
-        if( $extention!= "jpg" && $extention != "png" && $extention != "jpeg" && $extention != "gif" ) {
+    public function imageCheck($extention)
+    {
+        if ($extention != "jpg" && $extention != "png" && $extention != "jpeg" && $extention != "gif") {
             $this->addError(["Sorry, only JPG, JPEG, PNG & GIF files are allowed."]);
         }
     }
