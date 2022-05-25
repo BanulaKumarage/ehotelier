@@ -9,5 +9,10 @@
 <body>
     <a href="<?=SROOT?>/CustomerRegister/login">Customer Login</a><br>
     <a href="<?=SROOT?>/CustomerRegister/signup">Join now</a>
+
+<!--    ====================================-->
+    <br>
+    <a href="<?=SROOT?>/EmployeeRegister/login">Employee Login</a>
+
 </body>
 </html>
