@@ -40,5 +40,10 @@ class Room extends Model{
             ]);
         }
     }
+    public function getRoomStatus(){
+        $roomDetails = [];
+        $roomDetails = $this->_db->find('room',[]);
+        return $roomDetails;
+    }
 
 }

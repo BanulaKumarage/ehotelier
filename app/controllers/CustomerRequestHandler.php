@@ -8,6 +8,13 @@
             $this->load_model('Customer_request');
         }
 
+//        public function viewAction(){
+//            $this->PharmacyModel = Pharmacy::currentLoggedInPharmacy();
+//            $result = $this->PharmacyModel->findAllItems();
+//            $this->view->items = $result;
+//            $this->view->render('user/view_inventory');
+//        }
+
         public function createAction(){
             $validation = new Validate();
             if ($_POST){
@@ -27,6 +34,19 @@
             }else {
                 $this->view->render('request/create');
             }
+        }
+
+        public function showRequestAction(){
+            $customerRequests = $this->Customer_requestModel->getCustomerRequests();
+            $this->view->customerRequests = $customerRequests;
+            $this->view->render('request/showRequest');
+
+        }
+        public function updateRequestAction(){
+            if ($_POST){
+                $this->Customer_requestModel->updateRequest($_POST);
+            }
+            $this->showRequestAction();
         }
         
     }

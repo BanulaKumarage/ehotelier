@@ -85,4 +85,10 @@ class ReservationHandler extends Controller
         $this->RoomModel->reserve($_SESSION['options'][$id]);
         Router::redirect("CustomerDashboard");
     }
+    public function monitorroomAction(){
+        $roomDetails = $this->RoomModel->getRoomStatus();
+        $this->view->roomDetails = $roomDetails;
+//        var_dump($roomDetails);
+        $this->view->render('reservation/monitorroom');
+    }
 }
