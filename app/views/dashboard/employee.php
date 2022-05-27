@@ -8,15 +8,10 @@
 </head>
 <body>
 <h1><?= $_SESSION['employeename'] . " : " . ucwords($_SESSION['role']) ?></h1>
-  
-=======
-<br><br>
-<a href="<?= SROOT ?>EmployeeRegister/logout">Logout</a>
 
 <!--    =======================-->
-
+<div>
 <?php if ($_SESSION['role'] === 'customercareofficer') { ?>
-        <div>
 
             <br> <br>
             <a href="<?= SROOT ?>ReservationHandler/roomrequest">Room Reservation Management</a>
@@ -24,12 +19,21 @@
             <a href="<?= SROOT ?>ReservationHandler/buffetrequest">Buffet Reservation Management</a>
           <br><br>
           <a href="<?=SROOT?>CustomerRequestHandler/showRequest">Customer Requests</a>
-          <br><br>
-          <a href="<?=SROOT?>EmployeeRegister/logout">Logout</a>
 
-        </div>
+<?php } elseif ($_SESSION['role'] === 'manager') {?>
+  <br><br>
+  <a href="<?=SROOT?>ReservationHandler/monitorroom">Monitor Room status</a>
+  <br><br>
+  <a href="<?=SROOT?>Employeeregister/addemployee">Add Employee</a>
 
-<?php } ?>
+<?php } else {?>
+  <br><br>
+  <a href="<?=SROOT?>CustomerRequestHandler/showRequest">Show assigned Customer Requests</a>
+<?php }?>
+</div>
+
+<br><br>
+<a href="<?=SROOT?>EmployeeRegister/logout">Logout</a>
 
 </body>
 </html>

@@ -21,7 +21,6 @@
 
     <?php
     foreach ($this->customerRequests as $customerRequest) {
-        var_dump($customerRequest[0]->{'id'});
         echo "<br><br>";
         echo "  <form action='".SROOT."CustomerRequestHandler/updateRequest' method='post'>
                 <div class='card w-75'>
