@@ -16,24 +16,24 @@ class ReservationHandler extends Controller
         $validation = new Validate();
 
         if ($_POST) {
-            $validation->check($_POST,[
-                'occupancy'=>[
-                    'display'=>"Number of People",
-                    'is_numeric'=>true
+            $validation->check($_POST, [
+                'occupancy' => [
+                    'display' => "Number of People",
+                    'is_numeric' => true
                 ]
             ]);
-            $validation->dateCheck($_POST["check_in_date"],$_POST["check_out_date"]);
+            $validation->dateCheck($_POST["check_in_date"], $_POST["check_out_date"]);
 
-            if ($validation->passed()){
+            if ($validation->passed()) {
 
                 $rooms = $this->RoomModel->getallrooms();
-                $options = $this->Room_reservationModel->getavailableoptions($_POST,$rooms);
+                $options = $this->Room_reservationModel->getavailableoptions($_POST, $rooms);
                 $_SESSION['options'] = $options;
                 $_SESSION['type'] = $_POST["type"];
                 $_SESSION['check_in_date'] = $_POST["check_in_date"];
                 $_SESSION['check_out_date'] = $_POST["check_out_date"];
                 Router::redirect("ReservationHandler/viewoptions");
-            }else {
+            } else {
                 $this->view->displayErrors = $validation->displayErrors();
                 $this->view->render('reservation/room');
             }
@@ -46,19 +46,19 @@ class ReservationHandler extends Controller
     {
         $validation = new Validate();
         if ($_POST) {
-            $validation->check($_POST,[
-                'capacity'=>[
-                    'display'=>"Number of People",
-                    'is_numeric'=>true
+            $validation->check($_POST, [
+                'capacity' => [
+                    'display' => "Number of People",
+                    'is_numeric' => true
                 ]
             ]);
             $validation->currentDatecheck($_POST['date']);
 
-            if ($validation->passed()){
+            if ($validation->passed()) {
                 $this->Buffet_reservationModel->reserve($_POST);
-               
+
                 Router::redirect("CustomerDashboard");
-            }else {
+            } else {
                 $this->view->displayErrors = $validation->displayErrors();
                 $this->view->render('reservation/buffet');
             }
@@ -67,13 +67,15 @@ class ReservationHandler extends Controller
         }
     }
 
-    public function viewoptionsAction(){
+    public function viewoptionsAction()
+    {
         $this->view->allrooms = $this->RoomModel->getAllRoomOptions($_SESSION['options']);
         $this->view->render('reservation/optionlist');
-        
+
     }
 
-    public function reserveAction($id){
+    public function reserveAction($id)
+    {
         $reservation = new Room_reservation();
         $reservation->room_ids = $_SESSION['options'][$id];
         $reservation->customer_id = Customer::currentLoggedInCustomer()->id;
@@ -85,39 +87,57 @@ class ReservationHandler extends Controller
         $this->RoomModel->reserve($_SESSION['options'][$id]);
         Router::redirect("CustomerDashboard");
     }
-  
-     public function monitorroomAction(){
-            $roomDetails = $this->RoomModel->getRoomStatus();
-            $this->view->roomDetails = $roomDetails;
-    //        var_dump($roomDetails);
-            $this->view->render('reservation/monitorroom');
+
+    public function monitorroomAction()
+    {
+        $roomDetails = $this->RoomModel->getRoomStatus();
+        $this->view->roomDetails = $roomDetails;
+        //        var_dump($roomDetails);
+        $this->view->render('reservation/monitorroom');
+    }
+
+
+    public function roomrequestAction()
+    {
+
+        $room_reqs = $this->Room_reservationModel->getallroom_reservations();
+
+        $this->view->allroom_reqs = $room_reqs;
+
+        $this->view->render('management/roomreservation');
+
+
+    }
+
+    public function buffetrequestAction()
+    {
+
+        $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
+
+        $this->view->allbuffet_reqs = $buffet_reqs;
+
+        $this->view->render('management/buffetreservation');
+    }
+
+    public function changebuffetreservation_statusAction($id)
+    {
+
+        if ($_POST) {
+            $this->Buffet_reservationModel->change_br_status($id, $_POST['buffet_res_status']);
         }
 
 
-      //=================================================================
+    }
 
-      public function roomrequestAction()
-      {
+    public function changeroomreservation_statusAction($id)
+    {
 
-
-          $room_reqs = $this->Room_reservationModel->getallroom_reservations();
-
-          $this->view->allroom_reqs = $room_reqs;
-
-          $this->view->render('management/roomreservation');
+        if ($_POST) {
+            $this->Room_reservationModel->change_rr_status($id, $_POST['room_res_status']);
+        }
 
 
-      }
-
-      public function buffetrequestAction()
-      {
-
-          $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
-
-          $this->view->allbuffet_reqs = $buffet_reqs;
-
-          $this->view->render('management/buffetreservation');
+    }
 
 
-      }
 }

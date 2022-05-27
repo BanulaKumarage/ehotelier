@@ -44,4 +44,11 @@ class Room_reservation extends Model{
         ]);
 
     }
+
+    public function change_rr_status($id, $status)
+    {
+
+        //call update method
+
+    }
 }

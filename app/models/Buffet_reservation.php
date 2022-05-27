@@ -29,4 +29,11 @@ class Buffet_reservation extends Model{
 
     }
 
+    public function change_br_status($id, $status)
+    {
+
+        //call update method
+
+    }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
-class Customer extends Model{
+class Customer extends Model
+{
 
     public static $currentLoggedInCustomer = null;
 
@@ -12,7 +13,7 @@ class Customer extends Model{
 
     public function findByUserName($username)
     {
-        $this->findFirst(['conditions' => 'username=? and is_closed=?', 'bind' => [$username,0]]);
+        $this->findFirst(['conditions' => 'username=? and is_closed=?', 'bind' => [$username, 0]]);
     }
 
     public static function currentLoggedInCustomer()
@@ -23,10 +24,11 @@ class Customer extends Model{
         return self::$currentLoggedInCustomer;
     }
 
-    public function login(){
-        Session::set($this->_sessionName,$this->id);
-        Session::set('username',$this->username);
-        Session::set('customername',$this->name);
+    public function login()
+    {
+        Session::set($this->_sessionName, $this->id);
+        Session::set('username', $this->username);
+        Session::set('customername', $this->name);
     }
 
     public function logout()
@@ -36,10 +38,20 @@ class Customer extends Model{
         return true;
     }
 
-    public function registerNewCustomer($params){
+    public function registerNewCustomer($params)
+    {
         $params['is_closed'] = 0;
         $this->assign($params);
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         $this->save();
+    }
+
+    //===============================
+    public function findUser($username)
+    {
+        return $this->find([
+            "conditions" => "username=?",
+            "bind" => [$username]
+        ]);
     }
 }

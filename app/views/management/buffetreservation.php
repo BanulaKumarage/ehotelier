@@ -24,7 +24,20 @@
             <label>Slut : <?= $reqs->slot ?></label> <br>
             <label>Status : <?= $reqs->status ?></label> <br>
 
-        </div><br>
+
+            <div>
+                <form action="<?= SROOT ?>ReservationHandler/changebuffetreservation_status/<?= $reqs->id ?>" method="post">
+                    <select name="buffet_res_status">
+                        <option value="" disabled selected>Choose Status</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <input type="submit" name="submit" vlaue="Choose Options">
+                </form>
+            </div>
+
+        </div>
+        <br><br>
 
     <?php } ?>
 </table>
