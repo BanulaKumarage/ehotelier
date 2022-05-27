@@ -29,5 +29,71 @@
             $this->EmployeeModel->logout();
             Router::redirect('home/index');
         }
+        public function addEmployeeAction(){
 
+            $validation = new Validate();
+            if ($_POST){
+
+                $validation->check($_POST,[
+                    'password'=>[
+                        'display'=>'Password',
+                        'min'=>6
+                    ],
+                    'username'=>[
+                        'display'=>'Username',
+                        'min'=>4
+                    ],
+                    'repassword'=>[
+                        'display'=>'Confirm Password',
+                        'matches'=>'password'
+                    ],
+                    'username'=>[
+                        'display'=>'Username',
+                        'unique'=>'customer'
+                    ],
+                    'contact_no'=>[
+                        'display'=>'Mobile Number',
+                        'valid_contact'=>true
+                    ],
+                    'email'=>[
+                        'display'=>'Email',
+                        'valid_email'=>true
+                    ]
+                ]);
+
+                if ($validation->passed()){
+                    $this->EmployeeModel = new Employee();
+                    $this->EmployeeModel->registerNewEmployee($_POST);
+                    Router::redirect('');
+                }else {
+                    $this->view->displayErrors = $validation->displayErrors();
+                    $this->view->render('register/addemployee');
+                }
+            }else{
+                $this->view->render('register/addemployee');
+            }
+        }
+        public function removeEmployeeAction(){
+            $validation = new Validate();
+            if ($_POST){
+                $validation->check($_POST,[
+                    'email'=>[
+                        'display'=>'Email',
+                        'valid_email'=>true
+                    ]
+                ]);
+                if ($validation->passed()){
+                    $this->EmployeeModel = new Employee();
+                    $this->EmployeeModel->removeEmployee($_POST);
+                    $this->view->render('register/addemployee');
+                }else {
+                    $this->view->displayErrors = $validation->displayErrors();
+                    $this->view->render('register/addemployee');
+                }
+            }else{
+                $this->view->render('register/addemployee');
+            }
+
+
+        }
     }

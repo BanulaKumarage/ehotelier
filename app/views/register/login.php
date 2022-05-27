@@ -20,9 +20,10 @@
                 <input type="submit" class="btn btn-primary" name="submit" value="Sign-in">
                 
                 <span>
-                    <?php 
+                    <?php
+                    echo "Hashed pw :". password_hash($_POST['password'], PASSWORD_DEFAULT);
                         if (isset($this->message)){
-                            echo $this->message;
+//                            echo $this->message;
                         }
                     ?>
                 </span>

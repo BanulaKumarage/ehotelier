@@ -29,6 +29,19 @@ class Employee extends Model{
         Session::set('employeename',$this->name);
         Session::set('role',$this->role);
     }
+    public function registerNewEmployee($params){
+        $params['is_closed'] = 0;
+        $params['status'] = "available";
+        var_dump($params);
+        $this->assign($params);
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        $this->save();
+    }
+    public function removeEmployee($params){
+        if ($params['email']){
+            $this->_db->query("UPDATE employee SET is_closed = ? WHERE email = ?" , [1, $params['email']]);
+        }
+    }
 
     public function logout()
     {
