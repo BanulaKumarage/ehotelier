@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 
-class Buffet_reservation extends Model{
+class Buffet_reservation extends Model
+{
 
     public function __construct()
     {
@@ -9,7 +10,8 @@ class Buffet_reservation extends Model{
         parent::__construct($table);
     }
 
-    public function reserve($params){
+    public function reserve($params)
+    {
         $params['status'] = 'pending';
         $params['customer_id'] = Customer::currentLoggedInCustomer()->id;
         $params['is_closed'] = 0;
@@ -19,20 +21,38 @@ class Buffet_reservation extends Model{
 
 
     //==============================================
+    public function getBuffet_reservations_bystatus($status)
+    {
+
+        if ($status == "all") {return $this->getallBuffet_reservations();}
+
+        return $this->find([
+            "conditions"=>"status=?",
+            "bind" => [$status]
+        ]);
+
+    }
+
+
     public function getallBuffet_reservations()
     {
 
         return $this->find([
-            "conditions"=>"is_closed!=?",
-            "bind" => ['1']
+            "conditions" => "is_closed=?",
+            "bind" => ['0']
         ]);
 
     }
 
     public function change_br_status($id, $status)
     {
-
-        //call update method
+        if ($status === "closed"){
+            $this->update($id, [
+                'is_closed' => 1]);
+        }else {
+            $this->update($id, [
+                'status' => $status]);
+        }
 
     }
 

@@ -54,11 +54,4 @@ class Customer_request extends Model{
 
     }
 
-    public function getPendingRequests(){
-        return $this->_db->find('customer_request',[
-            'conditions'=>'status=?',
-            'bind'=>['pending']
-        ]);
-    }
-
 }
