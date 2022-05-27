@@ -12,12 +12,14 @@ class CustomerSearch extends Controller
     public function searchcustomerAction()
     {
         if ($_POST) {
-            $customerinfo = $this->CustomerModel->findUser($_POST['customername']);
-            //$this->view->customernames = $customerinfo;
-
+            $customerinfo = $this->CustomerModel->searchCustomer($_POST['customername']);
+            $this->view->customernames = $customerinfo;
+            $this->view->render('management/searchcustomer');
         } else {
             $this->view->render('management/searchcustomer');
         }
     }
+
+
 
 }

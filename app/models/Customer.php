@@ -47,11 +47,20 @@ class Customer extends Model
     }
 
     //===============================
-    public function findUser($username)
+    public function findAllUsers()
     {
-        return $this->find([
-            "conditions" => "username=?",
-            "bind" => [$username]
-        ]);
+        return $this->_db->find('customer', ['conditions' => 'is_closed=?', 'bind' => [0]]);
+    }
+
+    public function searchCustomer($name)
+    {
+        $resCustomers = [];
+        $results = $this->findAllUsers();
+        foreach ($results as $row) {
+            if (strpos(strtoupper($row->name), strtoupper($name)) !== false) {
+                $resCustomers[] = $row;
+            }
+        }
+        return $resCustomers;
     }
 }
