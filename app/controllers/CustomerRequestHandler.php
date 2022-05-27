@@ -6,8 +6,6 @@
         {
             parent::__construct($controller,$action);
             $this->load_model('Customer_request');
-            $this->load_model('Employee');
-            $this->load_model('Employee_assignment');
         }
 
 //        public function viewAction(){
@@ -49,23 +47,6 @@
                 $this->Customer_requestModel->updateRequest($_POST);
             }
             $this->showRequestAction();
-        }
-
-        public function assignRequestAction() {
-            if ($_POST) {
-                $this->Customer_requestModel->update($_POST['customer_request_id'],[
-                    'status'=>'assigned'
-                ]);
-                $this->EmployeeModel->update($_POST['employee_id'],[
-                    'status'=>'working'
-                ]);
-                $this->Employee_assignmentModel->assignEmployee($_POST);
-                Router::redirect('CustomerRequestHandler/assignRequest');
-            } else {
-                $this->view->pendingRequests = $this->Customer_requestModel->getPendingRequests();
-                $this->view->workerEmployees = $this->EmployeeModel->getWorkerEmployees();
-                $this->view->render('request/assign');
-            }
         }
         
     }

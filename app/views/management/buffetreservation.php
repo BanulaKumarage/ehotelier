@@ -12,6 +12,22 @@
     <h3>Buffet Reservation Details</h3>
 
 
+    <div>
+        <form action='<?= SROOT ?>/ReservationHandler/buffetrequest' method='post'>
+            <label for="filter">Filter by Status</label>
+            <select name='filter_buffetstatus' onchange='this.form.submit()'>
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="accepted">Accepted</option>
+                <option value="paid">Paid</option>
+            </select>
+        </form>
+    </div>
+    <br><br><br>
+
+
+
     <?php for ($i = 0; $i < count($this->allbuffet_reqs); $i++) {
         $reqs = $this->allbuffet_reqs[$i];
         ?>
@@ -30,9 +46,10 @@
                     <select name="buffet_res_status">
                         <option value="" disabled selected>Choose Status</option>
                         <option value="accepted">Accepted</option>
+                        <option value="paid">Paid</option>
                         <option value="closed">Closed</option>
                     </select>
-                    <input type="submit" name="submit" value="Choose Options">
+                    <input type="submit" name="submit" value="Choose Option">
                 </form>
             </div>
 
