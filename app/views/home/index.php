@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Home </title>
-    <link rel="stylesheet" href="<?=SROOT?>css/home.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
@@ -14,7 +14,7 @@
 <body>
     <div class="banner">
         <div class="navbar">
-            <img src="<?=SROOT?>images/logo-1.png" class="logo">
+            <img src="images/logo-1.png" class="logo">
         </div>
         <div class="content">
             <h1> Welcome to eHotelier </h1> <br> <br>

@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 
-class Buffet_reservation extends Model{
+class Buffet_reservation extends Model
+{
 
     public function __construct()
     {

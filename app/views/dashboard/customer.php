@@ -13,7 +13,7 @@
         <a href="<?=SROOT?>ReservationHandler/roomreservation">Room Reservation</a><br>
         <a href="<?=SROOT?>ReservationHandler/buffetreservation">Buffet Reservation</a> <br>
         <a href="<?=SROOT?>CustomerRequestHandler/create">Make a request</a> <br>
-        <a href="<?=SROOT?>HotelReview/rate">Rate the hotel</a> <br>
+        <a href="">Rate the hotel</a> 
     </div>
 
     <br><br>
