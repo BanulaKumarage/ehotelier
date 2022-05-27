@@ -15,7 +15,7 @@
 
 <div>
     <table>
-
+        <?php if (isset($this->customernames)) {?>
         <?php for ($i = 0; $i < count($this->customernames); $i++) {
             $customer = $this->customernames[$i];
             ?>
@@ -24,7 +24,7 @@
                 <label><?= $customer->name ?></label> <br>
             </div><br>
 
-        <?php } ?>
+        <?php }} ?>
     </table>
 </div>
 
