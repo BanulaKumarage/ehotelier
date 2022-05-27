@@ -37,20 +37,30 @@ class Room_reservation extends Model{
 
 
     //==============================================
+    public function getroom_reservations_bystatus($status)
+    {
+        if ($status == "all") {return $this->getallroom_reservations();}
+
+        return $this->find([
+            "conditions"=>"status=?",
+            "bind" => [$status]
+        ]);
+
+    }
+
     public function getallroom_reservations()
     {
 
         return $this->find([
-            "conditions"=>"status!=?",
-            "bind" => ['closed']
+            "conditions"=>"id>?",
+            "bind" => [0]
         ]);
 
     }
 
     public function change_rr_status($id, $status)
     {
-
-        //call update method
-
+        $this->update($id, [
+            'status' => $status]);
     }
 }

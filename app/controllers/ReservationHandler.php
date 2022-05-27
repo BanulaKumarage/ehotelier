@@ -108,8 +108,12 @@ class ReservationHandler extends Controller
 
     public function roomrequestAction()
     {
+        if (isset($_POST['filter_roomstatus'])){
+            $room_reqs = $this->Room_reservationModel->getroom_reservations_bystatus($_POST['filter_roomstatus']);
+        } else {
+            $room_reqs = $this->Room_reservationModel->getallroom_reservations();
+        }
 
-        $room_reqs = $this->Room_reservationModel->getallroom_reservations();
 
         $this->view->allroom_reqs = $room_reqs;
 
@@ -120,8 +124,12 @@ class ReservationHandler extends Controller
 
     public function buffetrequestAction()
     {
+        if (isset($_POST['filter_buffetstatus'])){
+            $buffet_reqs = $this->Buffet_reservationModel->getBuffet_reservations_bystatus($_POST['filter_buffetstatus']);
+        } else {
+            $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
+        }
 
-        $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
 
         $this->view->allbuffet_reqs = $buffet_reqs;
 

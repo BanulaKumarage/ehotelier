@@ -13,6 +13,21 @@
         <h3>Room Reservation Details</h3>
 
 
+        <div>
+            <form action='<?= SROOT ?>/ReservationHandler/roomrequest' method='post'>
+                <label for="filter">Filter by Status</label>
+                <select name='filter_roomstatus' onchange='this.form.submit()'>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="all">All</option>
+                    <option value="reserved">Reserved</option>
+                    <option value="paid">Paid</option>
+                    <option value="closed">Closed</option>
+                </select>
+            </form>
+        </div>
+        <br><br><br>
+
+
         <?php for ($i = 0; $i < count($this->allroom_reqs); $i++) {
             $reqs = $this->allroom_reqs[$i];
             ?>
@@ -28,13 +43,15 @@
             </div>
 
             <div>
-                <form action="<?= SROOT ?>ReservationHandler/changeroomreservation_status/<?= $reqs->id ?>" method="post">
+                <form action="<?= SROOT ?>ReservationHandler/changeroomreservation_status/<?= $reqs->id ?>"
+                      method="post">
                     <select name="room_res_status">
                         <option value="" disabled selected>Choose Status</option>
                         <option value="reserved">Reserved</option>
                         <option value="paid">Paid</option>
+                        <option value="closed">Closed</option>
                     </select>
-                    <input type="submit" name="submit" value="Choose Options">
+                    <input type="submit" name="submit" value="Choose Option">
                 </form>
             </div>
             <br><br>
