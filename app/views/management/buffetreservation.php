@@ -32,7 +32,7 @@
                         <option value="accepted">Accepted</option>
                         <option value="closed">Closed</option>
                     </select>
-                    <input type="submit" name="submit" vlaue="Choose Options">
+                    <input type="submit" name="submit" value="Choose Options">
                 </form>
             </div>
 

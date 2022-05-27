@@ -34,7 +34,7 @@
                         <option value="reserved">Reserved</option>
                         <option value="paid">Paid</option>
                     </select>
-                    <input type="submit" name="submit" vlaue="Choose Options">
+                    <input type="submit" name="submit" value="Choose Options">
                 </form>
             </div>
             <br><br>
