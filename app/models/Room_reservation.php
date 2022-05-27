@@ -30,4 +30,18 @@ class Room_reservation extends Model{
         }
         return $options;
     }
+
+
+
+
+    //==============================================
+    public function getallroom_reservations()
+    {
+
+        return $this->find([
+            "conditions"=>"status!=?",
+            "bind" => ['closed']
+        ]);
+
+    }
 }

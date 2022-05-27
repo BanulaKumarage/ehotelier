@@ -17,4 +17,16 @@ class Buffet_reservation extends Model{
         $this->save();
     }
 
+
+    //==============================================
+    public function getallBuffet_reservations()
+    {
+
+        return $this->find([
+            "conditions"=>"is_closed!=?",
+            "bind" => ['1']
+        ]);
+
+    }
+
 }
