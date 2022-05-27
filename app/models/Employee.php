@@ -50,4 +50,13 @@ class Employee extends Model{
         return true;
     }
 
+    public function getWorkerEmployees() {
+        return $this->_db->find('employee',[
+            'conditions'=>'role=?',
+            'bind'=>['worker']
+        ]);
+    }
+
+
+
 }
