@@ -9,6 +9,7 @@ class Employee_assignment extends Model{
     }
 
     public function assignEmployee($params) {
+        $params['is_closed'] = 0;
         $this->assign($params);
         $this->save();
     }
