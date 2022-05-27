@@ -18,14 +18,16 @@ class Room_reservation extends Model{
                 "bind" => ["vacant",$type]
             ]);
 
-            $noofrooms = ($arr['occupancy'] / $rooms[0]->capacity);
-            if ($noofrooms <= count($rooms)){
-                $available_rooms = array_slice($rooms, 0, $noofrooms);
-                $ids = [];
-                foreach ($available_rooms as $room) {
-                    $ids[] = $room->id;
+            if ($rooms && count($rooms) >0){
+                $noofrooms = ($arr['occupancy'] / $rooms[0]->capacity);
+                if ($noofrooms <= count($rooms)){
+                    $available_rooms = array_slice($rooms, 0, $noofrooms);
+                    $ids = [];
+                    foreach ($available_rooms as $room) {
+                        $ids[] = $room->id;
+                    }
+                    $options[] = join(',',$ids);
                 }
-                $options[] = join(',',$ids);
             }
         }
         return $options;

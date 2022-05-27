@@ -19,10 +19,10 @@
         <?php for ($i = 0; $i < count($this->customernames); $i++) {
             $customer = $this->customernames[$i];
             ?>
-
                 <div>
                     <label>Name: <?= $customer->name ?></label> <br>
                     <label>Username: <?= $customer->username ?></label> <br>
+                    <a href="<?=SROOT?>ReservationHandler/roomreservation/<?= $customer->id ?>">Reserve</a>
                 </div><br>
 
         <?php }} ?>

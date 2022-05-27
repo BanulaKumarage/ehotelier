@@ -62,10 +62,7 @@ class Model
 
     public function findById($id)
     {
-        $this->findFirst([
-            'conditions' => ['id=?'],
-            'bind' => [$id]
-        ]);
+        $this->findFirst(['conditions' => 'id=? and is_closed=?', 'bind' => [$id, 0]]);
     }
 
     public function save()

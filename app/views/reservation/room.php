@@ -1,5 +1,10 @@
-<?php 
-    $customer = Customer::currentLoggedInCustomer();
+<?php
+    if (isset($_SESSION['role'])){
+        $customer = new Customer();
+        $customer->findById($_SESSION['customer_id']);
+    }else {
+        $customer = Customer::currentLoggedInCustomer();
+    }    
 ?>
 
 <!DOCTYPE html>
