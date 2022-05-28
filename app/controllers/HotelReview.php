@@ -8,6 +8,11 @@ class HotelReview extends Controller {
         $this->load_model('Rating');
     }
 
+    public function indexAction() {
+        $this->view->ratings = $this->RatingModel->getRatings();
+        $this->view->render('rating/view');
+    }
+
     public function rateAction() {
         if ($_POST) {
             $this->RatingModel->rate($_POST);

@@ -36,6 +36,7 @@
                     <?php } elseif ($_SESSION['role'] === 'manager') { ?>
                     <li><a href="<?= SROOT ?>ReservationHandler/monitorroom">Monitor Room status</a></li>
                     <li><a href="<?= SROOT ?>EmployeeRegister/addemployee">Add Employee</a></li>
+                    <li><a href="<?= SROOT ?>HotelReview">View Customer Ratings</a></li>
                     <?php } else { ?>
                     <li><a href="<?= SROOT ?>CustomerRequestHandler/showRequest">Show assigned Customer Requests</a></li>
                     <li><a href="<?= SROOT ?>RoomStatus/service">Update Room Service</a></li>
