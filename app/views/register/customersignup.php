@@ -18,7 +18,7 @@
 <body>
   <div class="banner">
   <div class="navbar">
-    <img src="<?=SROOT?>images/logo-1.png" class="logo">
+    <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
   </div>
   <div class="container">
     <div class="form">
@@ -48,13 +48,13 @@
         <input type="submit" class="submitBtn" value="Signup">
         </form>
     </div>
-    <span>
+    <span class="errors">
       <?php echo $this->displayErrors ?? ""; ?>
     </span>
   </div>
   </div>
  
-  <script src="jQuery.js"></script>
+  <script src="<?=SROOT?>js/signup_login.js"></script>
 </body>
  
 </html>

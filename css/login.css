@@ -42,7 +42,7 @@
   
     .form{
       width: 350px;
-      height: 450px;
+      height: 320px;
       background-color: rgba(41, 39, 39, 0.6);
       box-shadow: 0 5px 30px black;
     }
@@ -169,23 +169,15 @@
     }
 
     .errors{
-        font-size: 16px;
-        color: red;
-        text-align: center;
-        margin: auto;
-        display: flex;
-        justify-content: center;
+      font-size: 16px;
+      color: red;
+      text-align: center;
+      margin: auto;
+      display: flex;
+      justify-content: center;
     }
-    
-    li {
-        text-decoration: none; 
-        list-style-type: none;
-    }
-
-
-    @media only screen and (max-width: 524px){
-        .logo{
-            width: 90px;
-            cursor: pointer;
-        }
+  
+    li{
+      text-decoration: none; 
+      list-style-type: none;
     }
