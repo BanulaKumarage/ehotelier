@@ -4,6 +4,8 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
 
 // load configuration and helper functions
+
+require_once(ROOT . DS . 'config' . DS . 'env.php');
 require_once(ROOT . DS . 'config' . DS . 'config.php');
 require_once(ROOT . DS . 'app' . DS . 'libs' .DS . 'helpers.php');
 
