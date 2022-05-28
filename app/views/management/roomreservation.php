@@ -14,7 +14,7 @@
 
 
         <div>
-            <form action='<?= SROOT ?>/ReservationHandler/roomrequest' method='post'>
+            <form action='<?= SROOT ?>ReservationHandler/roomrequest' method='post'>
                 <label for="filter">Filter by Status</label>
                 <select name='filter_roomstatus' onchange='this.form.submit()'>
                     <option value="" selected disabled hidden>Choose here</option>

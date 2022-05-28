@@ -13,7 +13,7 @@
 
 
     <div>
-        <form action='<?= SROOT ?>/ReservationHandler/buffetrequest' method='post'>
+        <form action='<?= SROOT ?>ReservationHandler/buffetrequest' method='post'>
             <label for="filter">Filter by Status</label>
             <select name='filter_buffetstatus' onchange='this.form.submit()'>
                 <option value="" selected disabled hidden>Choose here</option>

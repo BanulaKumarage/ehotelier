@@ -1,7 +1,7 @@
 <?php 
 
 define('DEFAULT_CONTROLLER','Home');// default controller
-define('SROOT','/ehotelier/');
+define('SROOT','/');
 
 define('DEFAULT_LAYOUT','default');
 define('SITE_TITLE','eHotelier');

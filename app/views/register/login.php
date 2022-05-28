@@ -23,7 +23,7 @@
   <div class="container">
     <div class="form">
         <h1> Customer Login </h1> <br>
-        <form action="<?=SROOT?>/CustomerRegister/login" method="post">
+        <form action="<?=SROOT?>CustomerRegister/login" method="post">
         <div class="formGroup">
           <input type="text" name="username" placeholder="User Name" required>
         </div> <br>
