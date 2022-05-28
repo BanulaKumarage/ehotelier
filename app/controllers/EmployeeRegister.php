@@ -76,15 +76,18 @@
         public function removeEmployeeAction(){
             $validation = new Validate();
             if ($_POST){
+
                 $validation->check($_POST,[
-                    'email'=>[
-                        'display'=>'Email',
-                        'valid_email'=>true
+                    'username'=>[
+                        'display'=>'Username',
+                        'valid_username'=>'employee'
                     ]
                 ]);
+//                dnd($validation->passed());
                 if ($validation->passed()){
                     $this->EmployeeModel = new Employee();
-                    $this->EmployeeModel->removeEmployee($_POST);
+                    $removingEmployee = $this->EmployeeModel->showRemovingEmployee($_POST);
+                    $this->view->removingEmployee = $removingEmployee;
                     $this->view->render('register/addemployee');
                 }else {
                     $this->view->displayErrors = $validation->displayErrors();
@@ -95,5 +98,21 @@
             }
 
 
+        }
+        public function confirmRemoveEmployeeAction(){
+//            dnd($_POST);
+            if ($_POST){
+                $this->EmployeeModel = new Employee();
+                if ($_POST['username']){
+                    $this->EmployeeModel->removeEmployee($_POST);
+                    Router::redirect('EmployeeDashboard');
+                }
+                if ($_POST['cancel']){
+                    Router::redirect('EmployeeDashboard');
+                }
+            }
+        }
+        public function cancelRemoveEmployeeAction(){
+            $this->view->render('register/addemployee');
         }
     }

@@ -38,8 +38,16 @@ class Employee extends Model{
         $this->save();
     }
     public function removeEmployee($params){
-        if ($params['email']){
-            $this->_db->query("UPDATE employee SET is_closed = ? WHERE email = ?" , [1, $params['email']]);
+        if ($params['username']){
+            $this->_db->query("UPDATE employee SET is_closed = ? WHERE username = ?" , [1, $params['username']]);
+        }
+    }
+
+    public function showRemovingEmployee($params){
+        if ($params['username']){
+            return $this->_db->find('employee',[
+                'conditions'=>'username=?',
+                'bind'=>[$params['username']]]);
         }
     }
 
