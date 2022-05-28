@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model
 {
@@ -6,7 +6,7 @@ class Model
 
     public function __construct($table)
     {
-        $this->_db = DB::getInstance(HOST,DB_NAME,DB_USER,DB_PASSWORD);
+        $this->_db = DB::getInstance(HOST, DB_NAME, DB_USER, DB_PASSWORD);
         $this->_table = $table;
         $this->_setTableColumns();
         $this->_modelName = ucwords($this->_table);
@@ -19,7 +19,7 @@ class Model
         foreach ($columns as $column) {
             $columnName = $column->Field;
             $this->_columnNames[] = $column->Field;
-            $this->{$columnName}  = null;
+            $this->{$columnName} = null;
         }
     }
 
@@ -62,10 +62,7 @@ class Model
 
     public function findById($id)
     {
-        $this->findFirst([
-            'conditions' => ['id=?'],
-            'bind' => [$id]
-        ]);
+        $this->findFirst(['conditions' => 'id=? and is_closed=?', 'bind' => [$id, 0]]);
     }
 
     public function save()
@@ -123,7 +120,6 @@ class Model
         }
         return $data;
     }
-
 
 
     public function assign($params)

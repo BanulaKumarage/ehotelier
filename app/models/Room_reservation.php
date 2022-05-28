@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Room_reservation extends Model{
 
@@ -18,14 +18,16 @@ class Room_reservation extends Model{
                 "bind" => ["vacant",$type]
             ]);
 
-            $noofrooms = ($arr['occupancy'] / $rooms[0]->capacity);
-            if ($noofrooms <= count($rooms)){
-                $available_rooms = array_slice($rooms, 0, $noofrooms);
-                $ids = [];
-                foreach ($available_rooms as $room) {
-                    $ids[] = $room->id;
+            if ($rooms && count($rooms) >0){
+                $noofrooms = ($arr['occupancy'] / $rooms[0]->capacity);
+                if ($noofrooms <= count($rooms)){
+                    $available_rooms = array_slice($rooms, 0, $noofrooms);
+                    $ids = [];
+                    foreach ($available_rooms as $room) {
+                        $ids[] = $room->id;
+                    }
+                    $options[] = join(',',$ids);
                 }
-                $options[] = join(',',$ids);
             }
         }
         return $options;
@@ -35,20 +37,30 @@ class Room_reservation extends Model{
 
 
     //==============================================
+    public function getroom_reservations_bystatus($status)
+    {
+        if ($status == "all") {return $this->getallroom_reservations();}
+
+        return $this->find([
+            "conditions"=>"status=?",
+            "bind" => [$status]
+        ]);
+
+    }
+
     public function getallroom_reservations()
     {
 
         return $this->find([
-            "conditions"=>"status!=?",
-            "bind" => ['closed']
+            "conditions"=>"id>?",
+            "bind" => [0]
         ]);
 
     }
 
     public function change_rr_status($id, $status)
     {
-
-        //call update method
-
+        $this->update($id, [
+            'status' => $status]);
     }
 }

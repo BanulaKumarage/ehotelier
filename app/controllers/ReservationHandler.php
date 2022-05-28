@@ -11,7 +11,7 @@ class ReservationHandler extends Controller
         $this->load_model('Buffet_reservation');
     }
 
-    public function roomreservationAction()
+    public function roomreservationAction($id = "")
     {
         $validation = new Validate();
 
@@ -38,6 +38,7 @@ class ReservationHandler extends Controller
                 $this->view->render('reservation/room');
             }
         } else {
+            $_SESSION['customer_id'] = $id;
             $this->view->render('reservation/room');
         }
     }
@@ -78,14 +79,22 @@ class ReservationHandler extends Controller
     {
         $reservation = new Room_reservation();
         $reservation->room_ids = $_SESSION['options'][$id];
-        $reservation->customer_id = Customer::currentLoggedInCustomer()->id;
+        if (isset($_SESSION['role'])){
+            $reservation->customer_id =$_SESSION['customer_id'];
+        }else {
+            $reservation->customer_id = Customer::currentLoggedInCustomer()->id;
+        }
         $reservation->check_in_date = $_SESSION['check_in_date'];
         $reservation->check_out_date = $_SESSION['check_out_date'];
         $reservation->type = $_SESSION['type'];
         $reservation->status = "reserved";
         $reservation->save();
         $this->RoomModel->reserve($_SESSION['options'][$id]);
-        Router::redirect("CustomerDashboard");
+        if ($_SESSION['role']){
+            Router::redirect("EmployeeDashboard");
+        }else {
+            Router::redirect("CustomerDashboard");
+        }
     }
 
     public function monitorroomAction()
@@ -99,8 +108,12 @@ class ReservationHandler extends Controller
 
     public function roomrequestAction()
     {
+        if (isset($_POST['filter_roomstatus'])){
+            $room_reqs = $this->Room_reservationModel->getroom_reservations_bystatus($_POST['filter_roomstatus']);
+        } else {
+            $room_reqs = $this->Room_reservationModel->getallroom_reservations();
+        }
 
-        $room_reqs = $this->Room_reservationModel->getallroom_reservations();
 
         $this->view->allroom_reqs = $room_reqs;
 
@@ -111,8 +124,12 @@ class ReservationHandler extends Controller
 
     public function buffetrequestAction()
     {
+        if (isset($_POST['filter_buffetstatus'])){
+            $buffet_reqs = $this->Buffet_reservationModel->getBuffet_reservations_bystatus($_POST['filter_buffetstatus']);
+        } else {
+            $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
+        }
 
-        $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
 
         $this->view->allbuffet_reqs = $buffet_reqs;
 

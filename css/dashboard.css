@@ -1,0 +1,224 @@
+/********** Base styles **********/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/home.jpg);
+    /* background-image: url(home.jpg); */
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+  width: 40%;
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  float: left;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 70px;
+    background-color: rgba(41, 39, 39, 0.3);
+    padding: 0 5%;
+}
+
+nav .links{
+    float: right;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    /*width: 10px;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+nav .links li {
+    list-style: none;
+}
+
+nav .links a {
+    display: block;
+    padding: 1em;
+    background-color: #E07B29;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.title {
+    margin-left: 5%;
+    position: relative;
+    margin-top: 90px;
+}
+
+.title h1{
+    font-size: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-shadow: 2px 2px black;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    /*margin-top: 180px;*/
+    /*transform: translateY(-50%);*/
+    text-align: center;
+    color: white;
+}
+
+.actions a{
+    display: grid;
+    height: 70px;
+    width: 400px;
+    background: linear-gradient(#E07B29, #AF4C23);
+    margin: 30px;
+    /* position: absolute; */
+    /* position: relative; */
+    place-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    font-size: 28px;
+    color: white;
+    border-radius: 15px;
+}
+
+.actions li {
+    /*float:left;*/
+    display: inline-block;
+    text-decoration: none; 
+    list-style-type: none;
+}
+
+.actions ul{
+    text-align: center;
+}
+
+@media only screen and (max-width: 923px){
+    .actions a{
+        height: 60px;
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 823px){
+    .actions a{
+        height: 55px;
+        width: 310px;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 743px){
+    .actions a{
+        height: 55px;
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width: 683px){
+    .title h1{
+        font-size: 30px;
+    }
+
+    .actions a{
+        height: 50px;
+        width: 250px;
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 623px){
+    .title h1{
+        font-size: 30px;
+    }
+
+    .actions a{
+        height: 45px;
+        width: 220px;
+    }
+}
+
+@media only screen and (max-width: 563px){
+    .title h1{
+        font-size: 30px;
+    }
+
+    .actions a{
+        height: 45px;
+        width: 200px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 523px){
+    .title h1{
+        font-size: 30px;
+    }
+
+    .actions a{
+        height: 40px;
+        width: 180px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 483px){
+    .title h1{
+        font-size: 35px;
+    }
+
+    .actions a{
+        height: 35px;
+        width: 160px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 393px){
+    .title h1{
+        font-size: 30px;
+    }
+
+    .actions a{
+        height: 33px;
+        width: 150px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 348px){
+    .title h1{
+        font-size: 23px;
+    }
+
+    .actions a{
+        height: 30px;
+        width: 140px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+}
