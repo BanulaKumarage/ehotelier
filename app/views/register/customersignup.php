@@ -48,10 +48,10 @@
         <input type="submit" class="submitBtn" value="Signup">
         </form>
     </div>
-    <span class="errors">
-      <?php echo $this->displayErrors ?? ""; ?>
-    </span>
   </div>
+  <span class="errors">
+    <?php echo $this->displayErrors ?? ""; ?>
+  </span>
   </div>
  
   <script src="<?=SROOT?>js/signup_login.js"></script>
