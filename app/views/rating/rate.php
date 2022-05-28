@@ -13,11 +13,24 @@ $customer = Customer::currentLoggedInCustomer();
 </head>
 
 <body>
-    <h1>Hotel Rating</h1> <br>
+    <h1>Rate ehotelier</h1> <br>
 
+    <?php 
+    $rated = false;
+    foreach ($this->ratings as $rating) {
+        $r = (array) $rating;
+        if (isset($r['customer_id']) && $r['customer_id'] == $customer->id) {
+            $rated = true;
+            break;
+        }
+    }
+    if ($rated) {
+        echo 'You gave ';
+        echo $r['value'] . ' stars. <br> Your review: ' . $r['description'];
+    } else {
+    ?>
     <div>
         <form action="<?=SROOT?>HotelReview/rate" method="post">
-        <label for="rating">Rate as <?php echo $customer->name?></label>
         
         <label for="value">1</label>
         <input type="radio" id="1" name="value" value="1">
@@ -35,15 +48,18 @@ $customer = Customer::currentLoggedInCustomer();
         </form>
 
     </div>
+    <?php
+    }
+    ?>
 
     <?php if ($this->ratings && count($this->ratings)){ ?>
         <?php
 
         $count = array(1=>0,2=>0,3=>0,4=>0,5=>0);
  
-        foreach($this->ratings as $r)
+        foreach($this->ratings as $rating)
         {
-            $r = (array) $r;
+            $r = (array) $rating;
             @$count[$r['value']]++;
         }
 
@@ -76,14 +92,14 @@ $customer = Customer::currentLoggedInCustomer();
             <table>
                 <?php
                     foreach ($this->ratings as $rating) {
-                        $rating = (array) $rating;
+                        $r = (array) $rating;
                         ?>
                         <tr>
                         <td>
-                            <?php echo $rating['value'];?>
+                            <?php echo $r['value'];?>
                         </td>
                         <td>
-                            <?php echo $rating['description'];?>
+                            <?php echo $r['description'];?>
                         </td>
                         </tr>
                     <?php }
