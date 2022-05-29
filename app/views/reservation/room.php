@@ -10,42 +10,68 @@ if (isset($_SESSION['role'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Reservation</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?=SROOT?>css/room.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
+ 
+  <!-- jQuery CDN Link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title> Room Reservation </title>
 </head>
+ 
 <body>
-<div>
-    <h1>Room Reservation</h1> <br>
-    <div>
-        <form action="<?=SROOT?>ReservationHandler/roomreservation" method="post">
-            <label>Customer Name : </label>
-            <input type="text" name="customer-name" value = "<?= $customer->name ?>" readonly> <br> <br>
-            <label>Contact No. : </label>
-            <input type="text" name="mobile-number" value = "<?= $customer->contact_no ?>" readonly> <br> <br>
-            <label>No of people : </label>
-            <input type="text" name="occupancy" value = "<?php echo htmlspecialchars($_POST['occupancy'] ?? '', ENT_QUOTES); ?>" required> <br> <br>
-            <label>Check in : </label>
-            <input type="date" name="check_in_date" value = "<?php echo htmlspecialchars($_POST['check_in_date'] ?? '', ENT_QUOTES); ?>" required> <br> <br>
-            <label>Check out : </label>
-            <input type="date" name="check_out_date" value = "<?php echo htmlspecialchars($_POST['check_out_date'] ?? '', ENT_QUOTES); ?>" required> <br> <br>
-
-            <label>Accomodation Type</label>
-            <select name = "type">
+  <div class="banner">
+    <nav>
+        <div class="navbar">
+            <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
+        </div>
+        <ul class="links">
+            <li> <a href="<?=SROOT?>CustomerRegister/logout"> Logout </a></li>
+        </ul>
+        </nav>
+        <br> <br> <br> <br>
+  <div class="container">
+    <div class="form">
+        <h1> Room Reservation </h1>
+        <form class="room" action="<?=SROOT?>ReservationHandler/roomreservation" method="post">
+        <div class="formGroup">
+            <input type="text" name="customer-name" value="<?= $customer->name ?>" placeholder="Customer Name" readonly>
+        </div>
+        <div class="formGroup">
+            <input type="text" name="mobile-number" placeholder="Contact Number" value="<?= $customer->contact_no ?>" readonly>
+        </div>
+        <div class="formGroup">
+            <input type="text" name="occupancy" value="<?php echo htmlspecialchars($_POST['occupancy'] ?? '', ENT_QUOTES); ?>" placeholder="No of people" required>
+        </div>
+        <div class="formGroup">
+            <input type="date" name="check_in_date" value="<?php echo htmlspecialchars($_POST['check_in_date'] ?? '', ENT_QUOTES); ?>" placeholder="Check-in date" required>
+        </div>
+        <div class="formGroup">
+            <input type="date" name="check_out_date" value = "<?php echo htmlspecialchars($_POST['check_out_date'] ?? '', ENT_QUOTES); ?>" placeholder="Check-out date" required>
+        </div>
+        <div class="formGroup">
+            <select class="form-select" name = "type">
                 <option value="fullboard">Full Board </option>
                 <option value="halfboard">Half Board </option>
                 <option value="bedandbreakfast">Bed and Breakfast </option>
-            </select><br><br>
-            <input type="submit" value="Avilable Options">
-
+            </select>
+        </div>
+        <br>
+        <input type="submit" class="submitBtn" value="View Available Options">
         </form>
-
-        <span>
-                <?php echo $this->displayErrors ?? ""; ?>
-            </span>
     </div>
+  </div>
 
-</div>
+  <span class="errors">
+    <?php echo $this->displayErrors ?? ""; ?>
+  </span>
+
+  </div>
+ 
 </body>
+ 
 </html>
