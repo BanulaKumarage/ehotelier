@@ -31,7 +31,6 @@
                     <li><a href="<?= SROOT ?>CustomerSearch/searchcustomer">Reserve for Customers</a></li>
                     <li><a href="<?= SROOT ?>ReservationHandler/roomrequest">Room Reservation Management</a></li>
                     <li><a href="<?= SROOT ?>ReservationHandler/buffetrequest">Buffet Reservation Management</a></li>
-                    <li><a href="<?= SROOT ?>CustomerRequestHandler/showRequest">Customer Requests</a></li>
                     <li><a href="<?= SROOT ?>CustomerRequestHandler/assignRequest">Manage Customer Requests</a></li>
                     <?php } elseif ($_SESSION['role'] === 'manager') { ?>
                     <li><a href="<?= SROOT ?>ReservationHandler/monitorroom">Monitor Room status</a></li>
