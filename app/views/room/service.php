@@ -19,57 +19,74 @@ if ($employee->role != 'worker') {
             document.getElementById("room_id").value = id;
             document.getElementById("room_number").innerHTML = id;
         }
+        function search() {
+            var input, filter, rooms, tr, th, i, txtValue;
+            input = document.getElementById('input');
+            filter = input.value.toUpperCase();
+            rooms = document.getElementById("rooms");
+            tr = rooms.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                th = tr[i].getElementsByTagName("th")[0];
+                txtValue = th.textContent || th.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
+            }
+        }        
     </script>
 </head>
 
 <body>
+
     <div class="container-xl mt-5 mb-5">
     <h5 class="row justify-content-center mb-3">Room Service</h5>
-        <div class="table-responsive">
-            <table class="table table-hover table-borderless align-middle no-wrap">
-                <thead class="thead">
-                    <tr>
-                        <th>Room</th>
-                        <th>Type</th>
-                        <th>Capacity</th>
-                        <th>Status</th>
-                        <th>Last Service</th>
-                        <th></th>
+    <input type="text" id="input" onkeyup="search()" class="mx-1 mt-3 mb-2" placeholder="Search by room number">
+    <div class="table-responsive no-wrap">
+        <table class="table table-hover table-borderless align-middle no-wrap">
+            <thead class="thead">
+                <tr>
+                    <th>Room</th>
+                    <th>Type</th>
+                    <th>Capacity</th>
+                    <th>Status</th>
+                    <th>Last Service</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="rooms">
+            <?php $rooms = $this->roomDetails; 
+                foreach ($rooms as $room) {
+                    $room = (array) $room;?>
+                    <tr class="border-top">
+                        <th>
+                        <?php echo $room['id'];?>
+                        </th>
+                        <td>
+                        <?php echo $room['type'];?>
+                        </td>
+                        <td>
+                        <?php echo $room['capacity'];?>
+                        </td>
+                        <td>
+                        <?php echo $room['status'];?>
+                        </td>
+                        <td>
+                        <?php echo $room['last_service'];?>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-primary" onClick="showModal(<?php echo $room['id'] ; ?>)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Serviced
+                        </button>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                <?php $rooms = $this->roomDetails; 
-                    foreach ($rooms as $room) {
-                        $room = (array) $room;?>
-                        <tr class="border-top">
-                            <th scope="row">
-                            <?php echo $room['id'];?>
-                            </th>
-                            <td>
-                            <?php echo $room['type'];?>
-                            </td>
-                            <td>
-                            <?php echo $room['capacity'];?>
-                            </td>
-                            <td>
-                            <?php echo $room['status'];?>
-                            </td>
-                            <td>
-                            <?php echo $room['last_service'];?>
-                            </td>
-                            <td>
-                            <button type="button" class="btn btn-primary" onClick="showModal(<?php echo $room['id'] ; ?>)" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Serviced
-                            </button>
-                            </td>
-                        </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
+            <?php } ?>
+            </tbody>
+        </table>
     </div>
-</div>
-
+ 
     <form action="<?=SROOT?>RoomStatus/service" method="post">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
