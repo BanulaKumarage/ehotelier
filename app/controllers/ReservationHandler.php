@@ -88,6 +88,7 @@ class ReservationHandler extends Controller
         $reservation->check_out_date = $_SESSION['check_out_date'];
         $reservation->type = $_SESSION['type'];
         $reservation->status = "reserved";
+        $reservation->is_closed = 0;
         $reservation->save();
         $this->RoomModel->reserve($_SESSION['options'][$id]);
         if ($_SESSION['role']){
@@ -150,8 +151,15 @@ class ReservationHandler extends Controller
     {
 
         if ($_POST) {
+            if ($_POST ['room_res_status']=='closed'){
+                $reservation = new Room_reservation();
+                $reservation->findById($id);
+                $ids = $reservation->room_ids;
+                $this->RoomModel->closereservation($ids);
+            }
             $this->Room_reservationModel->change_rr_status($id, $_POST['room_res_status']);
         }
+        Router::redirect("ReservationHandler/roomrequest");
 
 
     }

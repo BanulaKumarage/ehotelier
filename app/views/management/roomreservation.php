@@ -21,7 +21,6 @@
                     <option value="all">All</option>
                     <option value="reserved">Reserved</option>
                     <option value="paid">Paid</option>
-                    <option value="closed">Closed</option>
                 </select>
             </form>
         </div>
@@ -33,6 +32,7 @@
             ?>
 
             <div>
+                <label>Reservation ID : <?= $reqs->id ?></label> <br>
                 <label>Room IDs : <?= $reqs->room_ids ?></label> <br>
                 <label>Customer ID : <?= $reqs->customer_id ?></label> <br>
                 <label>Check-in Date : <?= $reqs->check_in_date ?></label> <br>

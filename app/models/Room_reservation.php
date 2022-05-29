@@ -45,8 +45,8 @@ class Room_reservation extends Model{
         if ($status == "all") {return $this->getallroom_reservations();}
 
         return $this->find([
-            "conditions"=>"status=?",
-            "bind" => [$status]
+            "conditions"=>"status=? and is_closed=?",
+            "bind" => [$status,0],
         ]);
 
     }
@@ -55,8 +55,8 @@ class Room_reservation extends Model{
     {
 
         return $this->find([
-            "conditions"=>"id>?",
-            "bind" => [0]
+            "conditions"=>"id>? and is_closed=?",
+            "bind" => [0,0]
         ]);
 
     }
@@ -65,5 +65,8 @@ class Room_reservation extends Model{
     {
         $this->update($id, [
             'status' => $status]);
+        $this->update($id,[
+            'is_closed'=>1
+        ]);
     }
 }

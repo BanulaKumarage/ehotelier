@@ -46,4 +46,14 @@ class Room extends Model{
         return $roomDetails;
     }
 
+
+    public function closereservation($ids){
+        $idlist = explode(",",$ids);
+        foreach ($idlist as $id) {
+            $room = new Room();
+            $room->update($id,[
+                'status'=>'vacant'
+            ]);
+        }
+    }
 }
