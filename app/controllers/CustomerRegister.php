@@ -59,6 +59,7 @@
                 if ($validation->passed()){
                     $this->CustomerModel = new Customer();
                     $this->CustomerModel->registerNewCustomer($_POST);
+                    $_SESSION['message'] = "User is registered";
                     Router::redirect('');
                 }else {
                     $this->view->displayErrors = $validation->displayErrors();

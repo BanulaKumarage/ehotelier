@@ -28,6 +28,7 @@
                 ]);
                 if ($validation->passed()){
                     $this->Customer_requestModel->createRequest($_POST);
+                    $_SESSION['message'] = "Request is sent";
                     Router::redirect('CustomerDashboard');
                 }else {
                     $this->view->errors = $validation->displayErrors();

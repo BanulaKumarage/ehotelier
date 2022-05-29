@@ -13,6 +13,16 @@
 
 <body>
     <div class="banner">
+    <div>
+        <strong><?php 
+                    if (isset($_SESSION['message'])){
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                    }
+                    
+                ?>
+        </strong>
+    </div>
         <div class="navbar">
             <img src="<?=SROOT?>images/logo-1.png" class="logo">
         </div>

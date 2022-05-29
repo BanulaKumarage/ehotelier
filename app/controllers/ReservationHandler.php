@@ -57,6 +57,7 @@ class ReservationHandler extends Controller
 
             if ($validation->passed()) {
                 $this->Buffet_reservationModel->reserve($_POST);
+                $_SESSION['message'] = "Buffet is reserved";
 
                 Router::redirect("CustomerDashboard");
             } else {
@@ -93,7 +94,9 @@ class ReservationHandler extends Controller
         $this->RoomModel->reserve($_SESSION['options'][$id]);
         if ($_SESSION['role']) {
             Router::redirect("EmployeeDashboard");
+            $_SESSION['message'] = "Your reservation is completed";
         } else {
+            $_SESSION['message'] = "Your reservation is completed";
             Router::redirect("CustomerDashboard");
         }
     }
