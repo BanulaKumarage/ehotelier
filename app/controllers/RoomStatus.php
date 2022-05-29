@@ -13,6 +13,7 @@ class RoomStatus extends Controller {
             $this->RoomModel->update($_POST['id'],[
                 'last_service'=>date('Y-m-d H:i:s')
             ]);
+            $_SESSION['message'] = "Room service status updated";
             Router::redirect('EmployeeDashboard');
         } else {
             $this->view->roomDetails = $this->RoomModel->getRoomStatus();

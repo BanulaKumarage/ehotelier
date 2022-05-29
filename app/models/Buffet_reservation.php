@@ -55,4 +55,15 @@ class Buffet_reservation extends Model{
 
     }
 
+    public function getbuffetres_history()
+    {
+
+        return $this->find([
+            "conditions" => "is_closed=? and customer_id=?",
+            "bind" => ['0',Customer::currentLoggedInCustomer()->id]
+        ]);
+
+    }
+
+
 }

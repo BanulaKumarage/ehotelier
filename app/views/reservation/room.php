@@ -1,3 +1,9 @@
+<?php 
+    if (!isset($_SESSION['customername']) || !isset($_SESSION['employeename'])){
+        Router::redirect('');
+    }
+?>
+
 <?php
 if (isset($_SESSION['role'])){
     $customer = new Customer();

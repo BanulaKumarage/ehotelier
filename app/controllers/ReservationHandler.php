@@ -57,6 +57,7 @@ class ReservationHandler extends Controller
 
             if ($validation->passed()) {
                 $this->Buffet_reservationModel->reserve($_POST);
+                $_SESSION['message'] = "Buffet is reserved";
 
                 Router::redirect("CustomerDashboard");
             } else {
@@ -79,9 +80,9 @@ class ReservationHandler extends Controller
     {
         $reservation = new Room_reservation();
         $reservation->room_ids = $_SESSION['options'][$id];
-        if (isset($_SESSION['role'])){
-            $reservation->customer_id =$_SESSION['customer_id'];
-        }else {
+        if (isset($_SESSION['role'])) {
+            $reservation->customer_id = $_SESSION['customer_id'];
+        } else {
             $reservation->customer_id = Customer::currentLoggedInCustomer()->id;
         }
         $reservation->check_in_date = $_SESSION['check_in_date'];
@@ -91,9 +92,11 @@ class ReservationHandler extends Controller
         $reservation->is_closed = 0;
         $reservation->save();
         $this->RoomModel->reserve($_SESSION['options'][$id]);
-        if ($_SESSION['role']){
+        if ($_SESSION['role']) {
             Router::redirect("EmployeeDashboard");
-        }else {
+            $_SESSION['message'] = "Your reservation is completed";
+        } else {
+            $_SESSION['message'] = "Your reservation is completed";
             Router::redirect("CustomerDashboard");
         }
     }
@@ -109,7 +112,7 @@ class ReservationHandler extends Controller
 
     public function roomrequestAction()
     {
-        if (isset($_POST['filter_roomstatus'])){
+        if (isset($_POST['filter_roomstatus'])) {
             $room_reqs = $this->Room_reservationModel->getroom_reservations_bystatus($_POST['filter_roomstatus']);
         } else {
             $room_reqs = $this->Room_reservationModel->getallroom_reservations();
@@ -124,7 +127,7 @@ class ReservationHandler extends Controller
 
     public function buffetrequestAction()
     {
-        if (isset($_POST['filter_buffetstatus'])){
+        if (isset($_POST['filter_buffetstatus'])) {
             $buffet_reqs = $this->Buffet_reservationModel->getBuffet_reservations_bystatus($_POST['filter_buffetstatus']);
         } else {
             $buffet_reqs = $this->Buffet_reservationModel->getallBuffet_reservations();
@@ -150,7 +153,7 @@ class ReservationHandler extends Controller
     {
 
         if ($_POST) {
-            if ($_POST ['room_res_status']=='closed'){
+            if ($_POST ['room_res_status'] == 'closed') {
                 $reservation = new Room_reservation();
                 $reservation->findById($id);
                 $ids = $reservation->room_ids;
@@ -161,6 +164,26 @@ class ReservationHandler extends Controller
         Router::redirect("ReservationHandler/roomrequest");
 
 
+    }
+
+    public function buffetreservationhistoryAction()
+    {
+
+        $buffet_reqs = $this->Buffet_reservationModel->getbuffetres_history();
+
+        $this->view->buffet_req_history = $buffet_reqs;
+
+        $this->view->render('history/buffetreservation');
+    }
+
+    public function roomreservationhistoryAction()
+    {
+
+        $room_reqs = $this->Room_reservationModel->getroomres_history();
+
+        $this->view->room_req_history = $room_reqs;
+
+        $this->view->render('history/roomreservation');
     }
 
 

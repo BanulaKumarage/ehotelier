@@ -1,3 +1,9 @@
+<?php 
+    if (!isset($_SESSION['customername'])){
+        Router::redirect('');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +18,16 @@
 </head>
 <body>
     <div class="banner">
+        <div>
+            <strong><?php 
+                        if (isset($_SESSION['message'])){
+                            echo $_SESSION['message'];
+                            unset($_SESSION['message']);
+                        }
+                        
+                    ?>
+            </strong>
+        </div>
         <nav>
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
@@ -30,6 +46,8 @@
                     <li><a href="<?=SROOT?>ReservationHandler/roomreservation"> Room Reservation </a></li>
                     <li><a href="<?=SROOT?>ReservationHandler/buffetreservation"> Buffet Reservation </a></li>
                     <li><a href="<?=SROOT?>CustomerRequestHandler/create"> Make a Request </a></li>
+                    <li><a href="<?=SROOT?>ReservationHandler/buffetreservationhistory"> View Buffet Reservation History </a></li>
+                    <li><a href="<?=SROOT?>ReservationHandler/roomreservationhistory"> View Room Reservation History </a></li>
                     <li><a href="<?=SROOT?>HotelReview/rate"> Rate the Hotel </a></li>
                 </ul>
             </div>

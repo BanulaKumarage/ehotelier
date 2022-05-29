@@ -1,3 +1,15 @@
+<?php 
+    if (!isset($_SESSION['customername'])){
+        if (isset($_SESSION['employeename'])){
+            Router::redirect('EmployeeDashboard');
+        }else {
+            Router::redirect('');
+        }
+        
+    }
+?>
+
+
 <?php
 $customer = Customer::currentLoggedInCustomer();
 ?>

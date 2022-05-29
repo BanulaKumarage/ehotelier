@@ -40,7 +40,6 @@ class Validate
                             }
                             break;
                         case 'unique':
-                            echo "SELECT {$item} FROM {$rule_value} WHERE {$item} = ?";
                             $check = $this->_db->query("SELECT {$item} FROM {$rule_value} WHERE {$item} = ?", [$value]);
                             if ($check->count()) {
                                 $this->addError(["{$display} is already exists. please choose another {$display}", $item]);
@@ -77,8 +76,6 @@ class Validate
                             break;
 
                         case 'valid_username':
-//                            dnd("SELECT {$item} FROM {$rule_value} WHERE {$item} = ? ,");
-//                            dnd("SELECT {$item} FROM {$rule_value} WHERE {$item} = ?");
                             $check = $this->_db->query("SELECT {$item} FROM {$rule_value} WHERE {$item} = ? and is_closed = ?", [$value,0]);
                             if (!$check->count()) {
                                 $this->addError(["{$display} does not exists. please try again {$display}", $item]);

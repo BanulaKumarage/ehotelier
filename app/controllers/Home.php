@@ -8,7 +8,9 @@ class Home extends Controller{
     }
 
     public function indexAction(){
+        $message = $_SESSION['message'] ?? "";
         Session::delete();
+        $_SESSION['message'] = $message;
         $this->view->render('home/index');
     }
 

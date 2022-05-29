@@ -74,4 +74,15 @@ class Room_reservation extends Model
                 'status' => $status]);
         }
     }
+
+    public function getroomres_history()
+    {
+
+        return $this->find([
+            "conditions" => "is_closed=? and customer_id=?",
+            "bind" => ['0',Customer::currentLoggedInCustomer()->id]
+        ]);
+
+    }
+
 }
