@@ -115,7 +115,6 @@ class ReservationHandler extends Controller
             $room_reqs = $this->Room_reservationModel->getallroom_reservations();
         }
 
-
         $this->view->allroom_reqs = $room_reqs;
 
         $this->view->render('management/roomreservation');
