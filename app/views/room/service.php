@@ -23,43 +23,56 @@ if ($employee->role != 'worker') {
 </head>
 
 <body>
-    <h1>Room Service</h1> <br>
-
-    <div>
-
-    <table>
-    <?php $rooms = $this->roomDetails; 
-    foreach ($rooms as $room) {
-        $room = (array) $room;?>
-        <tr>
-            <td>
-            <?php echo $room['id'];?>
-            </td>
-            <td>
-            <?php echo $room['type'];?>
-            </td>
-            <td>
-            <?php echo $room['capacity'];?>
-            </td>
-            <td>
-            <?php echo $room['status'];?>
-            </td>
-            <td>
-            <?php echo $room['last_service'];?>
-            </td>
-            <td>
-            <button type="button" class="btn btn-primary" onClick="showModal(<?php echo $room['id'] ; ?>)" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Serviced
-            </button>
-            </td>
-        </tr>
-    
-    <?php } ?>
-    </table>
+    <div class="container-xl mt-5 mb-5">
+    <h5 class="row justify-content-center mb-3">Room Service</h5>
+        <div class="table-responsive">
+            <table class="table table-hover table-borderless align-middle no-wrap">
+                <thead class="thead">
+                    <tr>
+                        <th>Room</th>
+                        <th>Type</th>
+                        <th>Capacity</th>
+                        <th>Status</th>
+                        <th>Last Service</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php $rooms = $this->roomDetails; 
+                    foreach ($rooms as $room) {
+                        $room = (array) $room;?>
+                        <tr class="border-top">
+                            <th scope="row">
+                            <?php echo $room['id'];?>
+                            </th>
+                            <td>
+                            <?php echo $room['type'];?>
+                            </td>
+                            <td>
+                            <?php echo $room['capacity'];?>
+                            </td>
+                            <td>
+                            <?php echo $room['status'];?>
+                            </td>
+                            <td>
+                            <?php echo $room['last_service'];?>
+                            </td>
+                            <td>
+                            <button type="button" class="btn btn-primary" onClick="showModal(<?php echo $room['id'] ; ?>)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Serviced
+                            </button>
+                            </td>
+                        </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
     <form action="<?=SROOT?>RoomStatus/service" method="post">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Room Service</h5>
@@ -76,6 +89,7 @@ if ($employee->role != 'worker') {
         </div>
     </div>
     </form>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
