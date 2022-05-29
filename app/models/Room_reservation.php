@@ -26,7 +26,10 @@ class Room_reservation extends Model{
                     foreach ($available_rooms as $room) {
                         $ids[] = $room->id;
                     }
-                    $options[] = join(',',$ids);
+                    $idlist = join(',',$ids);
+                    if ($idlist !== ""){
+                        $options[] = $idlist;
+                    }      
                 }
             }
         }
