@@ -1,3 +1,9 @@
+<?php 
+    if (!isset($_SESSION['employeename'])){
+        Router::redirect('');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

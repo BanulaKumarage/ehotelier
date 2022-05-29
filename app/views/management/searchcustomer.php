@@ -1,3 +1,16 @@
+<?php 
+    if (!isset($_SESSION['employeename'])){
+        if (isset($_SESSION['customername'])){
+            Router::redirect('CustomerDashboard');
+        }else {
+            Router::redirect('');
+        }
+        
+    }elseif ($_SESSION['role'] !== 'customercareofficer'){
+        Router::redirect('EmployeeDashboard');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

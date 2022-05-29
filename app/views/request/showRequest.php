@@ -1,5 +1,14 @@
-<?php
-
+<?php 
+    if (!isset($_SESSION['employeename'])){
+        if (isset($_SESSION['customername'])){
+            Router::redirect('CustomerDashboard');
+        }else {
+            Router::redirect('');
+        }
+        
+    }elseif ($_SESSION['role'] !== 'worker'){
+        Router::redirect('EmployeeDashboard');
+    }
 ?>
 
 <!doctype html>

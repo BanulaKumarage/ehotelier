@@ -1,4 +1,15 @@
 <?php 
+    if (!isset($_SESSION['customername'])){
+        if (isset($_SESSION['employeename'])){
+            Router::redirect('EmployeeDashboard');
+        }else {
+            Router::redirect('');
+        }
+        
+    }
+?>
+
+<?php 
     $types = [
         'fullboard'=>"Full Board",
         'halfboard'=>"Half Board",
