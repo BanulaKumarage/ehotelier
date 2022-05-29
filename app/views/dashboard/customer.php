@@ -30,6 +30,8 @@
                     <li><a href="<?=SROOT?>ReservationHandler/roomreservation"> Room Reservation </a></li>
                     <li><a href="<?=SROOT?>ReservationHandler/buffetreservation"> Buffet Reservation </a></li>
                     <li><a href="<?=SROOT?>CustomerRequestHandler/create"> Make a Request </a></li>
+                    <li><a href="<?=SROOT?>ReservationHandler/buffetreservationhistory"> View Buffet Reservation History </a></li>
+                    <li><a href="<?=SROOT?>ReservationHandler/roomreservationhistory"> View Room Reservation History </a></li>
                     <li><a href="<?=SROOT?>HotelReview/rate"> Rate the Hotel </a></li>
                 </ul>
             </div>
