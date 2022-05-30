@@ -1,6 +1,10 @@
 <?php 
-    if (!isset($_SESSION['employeename'])){
-        Router::redirect('');
+     if (!isset($_SESSION['employeename'])){
+        if (isset($_SESSION['customername'])){
+            Router::redirect('CustomerDashboard');
+        }else {
+            Router::redirect('');
+        }
     }
 ?>
 
