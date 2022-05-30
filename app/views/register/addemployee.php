@@ -107,7 +107,7 @@
                 <?php
                 if (isset($this->removingEmployee)){
                     $removingEmployee = $this->removingEmployee; ?>
-                <h5 class="title"> Confirm Remove ? </h5> 
+                <h5 class="title"> Confirm Remove? </h5> 
                 <input type="text" name="username" value="<?= $removingEmployee[0]->{'username'} ?>" hidden>
                 <input type="submit" class="submitBtn" value="confirmRemove">
                 <br>
@@ -124,6 +124,7 @@
     <span class="errors">
       <?php echo $this->displayErrors ?? ""; ?>
     </span>
+    <br>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

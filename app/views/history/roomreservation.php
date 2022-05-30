@@ -15,6 +15,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=SROOT?>css/roomResHistory.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Room Reservation History</title>
     <script>
         function search() {
@@ -39,12 +46,28 @@
 </head>
 <body>
 
+    <!-- navbar -->
+    <nav>
+        <div class="navbar">
+            <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
+        </div>
+        <ul class="links">
+            <li> <a href="<?=SROOT?>CustomerRegister/logout"> Logout </a></li>
+        </ul>
+    </nav>
+
+    <br><br><br>
+
 <div>
     <div id="reservations">
-        <h3>Room Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h3>
+    <h1 class="title">Room Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h1>
+    <div class="w3-content" style="max-width:1532px;">
+        <div class="w3-row-padding w3-padding-16">
 
         <br><br>
+
         <input type="text" id="input" onkeyup="search()" class="ml-1 mt-3 mb-4" placeholder="Search by reservation ID">
+        
         <?php for ($i = 0; $i < count($this->room_req_history); $i++) {
             $reqs = $this->room_req_history[$i];
             ?>
@@ -62,6 +85,8 @@
             <br><br>
 
         <?php } ?>
+        </div>
+    </div>
     </div>
 </div>
 
