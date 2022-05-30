@@ -53,6 +53,8 @@
 
     <div class="w3-content" style="max-width:1532px;">
         <div class="w3-row-padding w3-padding-16">
+        
+        <?php if (count($this->allrooms) > 0 ) {?>
 
         <?php for($i = 0; $i < count($this->allrooms) ; $i++) { 
             $options = $this->allrooms[$i]
@@ -84,6 +86,9 @@
             </div>
         <?php } ?>
 
+        <?php } else { ?>
+            <h2>No room options available for your details</h2>
+        <?php }?>
         </div>
     </div>
 
