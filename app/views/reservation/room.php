@@ -1,5 +1,5 @@
 <?php 
-    if (!isset($_SESSION['customername']) || !isset($_SESSION['employeename'])){
+    if (!isset($_SESSION['customername']) && !isset($_SESSION['employeename'])){
         Router::redirect('');
     }
 ?>
