@@ -26,8 +26,8 @@ class Buffet_reservation extends Model{
         if ($status == "all") {return $this->getallBuffet_reservations();}
 
         return $this->find([
-            "conditions"=>"status=?",
-            "bind" => [$status]
+            "conditions"=>"status=? and is_closed=?",
+            "bind" => [$status,0]
         ]);
 
     }

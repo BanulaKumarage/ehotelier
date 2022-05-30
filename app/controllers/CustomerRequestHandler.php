@@ -47,6 +47,12 @@
         }
         public function updateRequestAction(){
             if ($_POST){
+                if ($_POST['requestStatus'] === 'completed'){
+                    $employee_id = $this->Employee_assignmentModel->findEmployee($_POST['customer_req_id']);
+                    $this->EmployeeModel->update($employee_id,[
+                        'status'=>'available'
+                    ]);
+                }
                 $this->Customer_requestModel->updateRequest($_POST);
             }
             $this->showRequestAction();

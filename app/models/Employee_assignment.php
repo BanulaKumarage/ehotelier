@@ -13,6 +13,15 @@ class Employee_assignment extends Model{
         $this->assign($params);
         $this->save();
     }
+
+    public function findEmployee($req_id){
+        $this->findFirst([
+            "conditions"=>"customer_request_id=? and is_closed=?",
+            "bind" => [$req_id,0]
+        ]);
+        return $this->employee_id;
+
+    }
 }
 
 

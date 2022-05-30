@@ -45,7 +45,7 @@
     </nav>
     </div> <br><br><br>
 
-    <h1 class="title">Handle Employee Requests</h1> <br>
+    <h1 class="title">Handle Customer Requests</h1> <br>
 
     <div class="w3-content" style="max-width:1532px;">
     <div class="w3-row-padding w3-padding-16">
