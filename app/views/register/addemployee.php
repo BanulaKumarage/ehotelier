@@ -11,139 +11,119 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add/Remove Employee</title>
+    <link rel="stylesheet" href="<?=SROOT?>css/addemployee.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Sign up</title>
-    <style>
-        .login-form{
-            margin: 20px;
-        }
-        .remove-form{
-            margin: 20px;
-        }
-    </style>
 </head>
-<body>
-<h1>Add Employee..</h1>
-<div class="login-form">
-    <form action="<?=SROOT?>EmployeeRegister/addEmployee" method="post">
-        <div class="row">
-        <div class="col-lg-6">
-        <label class="form-label">Name : </label>
-        <input class="form-control" type="text" name="name" value="<?php echo htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES); ?>" required> <br><br>
+<body style="background-color: #200300;">
+    <nav>
+        <div class="navbar">
+            <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
+        <ul class="links">
+            <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
+        </ul>
+    </nav>
 
-        <div class="col-lg-6">
-        <label class="form-label">Contact No : </label>
-        <input class="form-control" type="text" name="contact_no" value="<?php echo htmlspecialchars($_POST['contact_no'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-lg-6">
-        <label class="form-label">Username : </label>
-        <input class="form-control" type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
+    <br> <br> <br>
 
-        <div class="col-lg-6">
-        <label class="form-label">Email : </label>
-        <input class="form-control" type="text" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
-        </div>
+    <!-- Page content -->
 
-        <div class="row">
-        <div class="col-lg-6">
-        <label class="form-label">Password : </label>
-        <input class="form-control" type="password" name="password" value="<?php echo htmlspecialchars($_POST['password'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
+    <div>
+    <h1 class="title"> Add Employee </h1> 
 
-        <div class="col-lg-6">
-        <label class="form-label">Confirm Password : </label>
-        <input class="form-control" type="password" name="repassword" value="<?php echo htmlspecialchars($_POST['repassword'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3">
-        <select class="form-select" name='role' id='role'>
-            <option value='worker'>Worker</option>
-            <option value='customercareofficer'>Customer Care Officer</option>
-        </select>
+    <div class="container">
+        <div class="form">
+            <form class="addEmp" action="<?=SROOT?>EmployeeRegister/addEmployee" method="post">
+            <br>
+            <div class="formGroup">
+              <input type="text" name="name" value="<?php echo htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES); ?>" placeholder="Name" required>
             </div>
-            <div class="col-lg-3">
-        <input class="btn btn-success btn-lg" type="submit" value="AddEmployee">
+            <div class="formGroup">
+              <input type="text" name="contact_no" value="<?php echo htmlspecialchars($_POST['contact_no'] ?? '', ENT_QUOTES); ?>" placeholder="Contact Number" required>
+            </div>
+            <div class="formGroup">
+              <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="User Name" required>
+            </div>
+            <div class="formGroup">
+                <input type="text" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES); ?>" placeholder="Email" required>
+              </div>
+            <div class="formGroup">
+              <input type="password" name="password" value="<?php echo htmlspecialchars($_POST['password'] ?? '', ENT_QUOTES); ?>" placeholder="Password" required>
+            </div>
+            <div class="formGroup">
+              <input type="password" name="repassword" value="<?php echo htmlspecialchars($_POST['repassword'] ?? '', ENT_QUOTES); ?>" placeholder="Confirm Password" required>
+            </div>
+            <div class="formGroup">
+                <select class="formSelect" name='role' onchange='this.form.submit()' style="width:80%;" id="role">
+                    <option value='worker'>Worker</option>
+                    <option value='customercareofficer'>Customer Care Officer</option>
+                </select>
+            </div>
+            <br>
+            <input type="submit" class="submitBtn" value="AddEmployee"> 
+            <br>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <br> <br> <br>
+
+    <!-- Remove employee -->
+    <div>
+        <h1 class="title"> Remove Employee </h1> 
+    
+        <div class="container">
+            <div class="form">
+                <form class="removeEmp" action="<?=SROOT?>EmployeeRegister/removeEmployee" method="post">
+                <br>
+                <div class="formGroup">
+                  <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="User Name" required>
+                </div>
+                <input type="submit" class="submitBtn" value="RemoveEmployee"> 
+                <br>
+                </form>
             </div>
         </div>
-
-
-    </form>
-
-
-
-</div>
-
-<br><br><br>
-
-<!--to remove employee-->
-<form class="remove-form" action="<?=SROOT?>EmployeeRegister/removeEmployee" method="post">
-    <h4>Enter email of the removing employee</h4>
-    <br>
-    <div class="row">
-
-    <div class="col-lg-1">
-        <label class="form-label">Username : </label>
     </div>
-        <div class="col-lg-4">
-        <input class="form-control" type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" required> <br><br>
-        </div>
 
-    <div class="col-lg-3">
-        <input class="btn btn-secondary btn-lg" type="submit" value="RemoveEmployee">
-    </div>
-    </div>
-</form>
-<form class='remove-form' action='<?=SROOT?>EmployeeRegister/confirmRemoveEmployee' method='post'>
-<?php
-if (isset($this->removingEmployee)){
-    $removingEmployee = $this->removingEmployee;
-//    echo $removingEmployee[0]->{'username'};
-    echo " 
     
-        
-    <div class='row' style='padding-left: 300px'>
-    <div class='col-lg-3'> 
-    <h6>Removing employee : <span>" . $removingEmployee[0]->{'username'} . "</span></h6>    
-    </div>
-    <div class='col-lg-2'>
-        <input type='hidden' name='username' value='" . $removingEmployee[0]->{'username'} ." ' >
-        <input class='btn btn-success ' type='submit' value='confirmRemove'>
-    </div>
-    </form>
-    <form class='remove-form' action='".SROOT."EmployeeRegister/cancelRemoveEmployee' method='post'>
-    <div class='col-lg-2' style='padding-left: 300px'>
-        <input class='btn btn-danger ' type='submit' value='cancel'>
-    </div>
-    </form>
-    </div>
+    <!-- Confirm remove -->
+    <br> <br> <br>
     
-    
-    ";
-}
+    <div>
+        <div>
+                <form class="confirm" action="<?=SROOT?>EmployeeRegister/confirmRemoveEmployee" method="post">
+                <?php
+                if (isset($this->removingEmployee)){
+                    $removingEmployee = $this->removingEmployee; ?>
+                <h5 class="title"> Confirm Remove <?php echo $removingEmployee[0]->{'username'}?>? </h5> 
+                <input type="submit" class="submitBtn" value="confirmRemove">
+                <br>
+                </form>
+                <form class="cancel" action="<?=SROOT?>EmployeeRegister/cancelRemoveEmployee" method="post">
+                    <input type="submit" class="submitBtn" value="cancel"> 
+                    <br>
+                </form>
+                <?php } ?>
+        </div>  
+    </div>
 
-?>
-    <span>
-        <div style="color: aliceblue">
-            <?php echo $this->displayErrors ?? ""; ?>
-            </div>
+
+    <span class="errors">
+      <?php echo $this->displayErrors ?? ""; ?>
     </span>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
