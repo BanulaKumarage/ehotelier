@@ -64,7 +64,8 @@
                 if ($validation->passed()){
                     $this->EmployeeModel = new Employee();
                     $this->EmployeeModel->registerNewEmployee($_POST);
-                    Router::redirect('');
+                    Router::redirect('EmployeeDashboard');
+                    $_SESSION['message'] = "Employee added";
                 }else {
                     $this->view->displayErrors = $validation->displayErrors();
                     $this->view->render('register/addemployee');
@@ -100,11 +101,11 @@
 
         }
         public function confirmRemoveEmployeeAction(){
-//            dnd($_POST);
             if ($_POST){
                 $this->EmployeeModel = new Employee();
                 if ($_POST['username']){
                     $this->EmployeeModel->removeEmployee($_POST);
+                    $_SESSION['message'] = "Employ is removed";
                     Router::redirect('EmployeeDashboard');
                 }
                 if ($_POST['cancel']){

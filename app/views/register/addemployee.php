@@ -107,7 +107,8 @@
                 <?php
                 if (isset($this->removingEmployee)){
                     $removingEmployee = $this->removingEmployee; ?>
-                <h5 class="title"> Confirm Remove <?php echo $removingEmployee[0]->{'username'}?>? </h5> 
+                <h5 class="title"> Confirm Remove ? </h5> 
+                <input type="text" name="username" value="<?= $removingEmployee[0]->{'username'} ?>" hidden>
                 <input type="submit" class="submitBtn" value="confirmRemove">
                 <br>
                 </form>
