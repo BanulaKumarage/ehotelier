@@ -26,6 +26,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title> Monitor Room Status </title>
+    <script>
+        function search() {
+            var input, filter, rooms, room, h3, i, txtValue;
+            input = document.getElementById("input");
+            filter = input.value.toUpperCase();
+            rooms = document.getElementById("rooms");
+            div = rooms.getElementsByTagName("div");
+
+            for (i = 0; i < div.length; i++) {
+                h3 = div[i].getElementsByTagName("h3")[0];
+                txtValue = h3.textContent || h3.innerText;
+                txtValue = txtValue.replace(' Room NO: ','');
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    div[i].style.display = "";
+                } else {
+                    div[i].style.display = "none";
+                }
+            }
+        }       
+    </script>
 </head>
 
 <body>
@@ -43,10 +63,15 @@
 
     <!-- Page content -->
 
-    <h1 class="title"> Room Reservation Details </h1> <br>
+    <h1 class="title"> Room Status </h1> <br>
+    
+    <div style="margin: 0 25px 20px; ">
+        <label>Search by room number </label>
+        <input type="text" id="input" onkeyup="search()" style="margin-left:5px; text-align: center; width: 80px">
+    </div>
 
     <div class="w3-content" style="max-width:1532px;">
-        <div class="w3-row-padding w3-padding-16">
+        <div class="w3-row-padding w3-padding-16" id="rooms">
 
         <?php
         foreach ($this->roomDetails as $roomDetail){ ?>

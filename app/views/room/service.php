@@ -21,7 +21,7 @@ if ($employee->role != 'worker') {
         }
         function search() {
             var input, filter, rooms, tr, th, i, txtValue;
-            input = document.getElementById('input');
+            input = document.getElementById("input");
             filter = input.value.toUpperCase();
             rooms = document.getElementById("rooms");
             tr = rooms.getElementsByTagName("tr");
@@ -30,9 +30,9 @@ if ($employee->role != 'worker') {
                 th = tr[i].getElementsByTagName("th")[0];
                 txtValue = th.textContent || th.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
+                    tr[i].style.display = "";
                 } else {
-                tr[i].style.display = "none";
+                    tr[i].style.display = "none";
                 }
             }
         }        
@@ -43,7 +43,12 @@ if ($employee->role != 'worker') {
 
     <div class="container-xl mt-5 mb-5">
     <h5 class="row justify-content-center mb-3">Room Service</h5>
-    <input type="text" id="input" onkeyup="search()" class="mx-1 mt-3 mb-2" placeholder="Search by room number">
+   
+    <div class="mx-4 my-2">
+        <label class="mx-1">Search by room number </label>
+        <input type="text" id="input" onkeyup="search()" style="width: 80px" class="text-center">
+    </div>
+
     <div class="table-responsive no-wrap">
         <table class="table table-hover table-borderless align-middle no-wrap">
             <thead class="thead">

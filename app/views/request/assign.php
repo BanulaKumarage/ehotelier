@@ -29,7 +29,6 @@ if ($employee->role != 'customercareofficer') {
     </nav>
     </div> <br>
     <div class="container-xl mt-5 mb-5">
-        <!-- <h4>Manage Customer Requests</h3> -->
 
 <?php $requests = $this->pendingRequests;
 $count = 0 ?>
