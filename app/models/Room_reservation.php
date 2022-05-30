@@ -11,7 +11,7 @@ class Room_reservation extends Model
 
     public function getavailableoptions($arr, $allrooms)
     {
-        $types = ["Suite", "Quad", "Deluxe", "Premium Deluxe"];
+        $types = ["Suite", "Quad", "Deluxe", "Premium Deluxe", "Triple","Single"];
         $options = [];
 
         foreach ($types as $type) {
