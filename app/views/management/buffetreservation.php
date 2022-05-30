@@ -89,6 +89,13 @@
             $reqs = $this->allbuffet_reqs[$i];
         ?>
             <div class="w3-third w3-margin-bottom">
+            <?php if($reqs->slot == "breakfast") { ?> 
+              <img src="<?=SROOT?>images/breakfast.jpg" alt="Breakfast" style="width:100%">
+              <?php } elseif($reqs->slot == "lunch"){ ?>
+              <img src="<?=SROOT?>images/lunch.jpg" alt="Lunch" style="width:100%">
+              <?php } elseif($reqs->slot == "dinner"){ ?>
+              <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
+              <?php } ?>
               <div class="w3-container w3-white">
                 <!--<h6 class="w3-opacity">From $99</h6>-->
                 <br>

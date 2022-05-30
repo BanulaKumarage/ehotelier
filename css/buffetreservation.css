@@ -52,11 +52,13 @@ body{
       color: white;
       text-decoration: none;
       border-radius: 10px;
+      font-family: 'Ubuntu', sans-serif;
   }
 
   .title{
       color: #E07B29;;
       margin-left: 20px;
+      font-family: 'Ubuntu', sans-serif;
   }
 
   .filter h3{
