@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=SROOT?>css/buffetreservation.css">
+    <link rel="stylesheet" href="<?=SROOT?>css/reservationHistory.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,13 +58,15 @@
             <li> <a href="<?= SROOT ?>EmployeeRegister/logout" style="font-family: 'Ubuntu', sans-serif;"> Logout </a></li>
         </ul>
     </nav>
-</div> <br><br><br> <br>
+</div> <br><br><br>
 
 <div id="reservations">
-    <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Buffet Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h1>
-    <br><br>
-
-        <input type="text" id="input" onkeyup="search()" class="ml-1 mt-3 mb-4" placeholder="Search by reservation ID">
+    <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Your Buffet Reservation History </h1> <br>
+    
+    <div class="text-light mx-4 mt-3 mb-4">
+        <label><h4>Search by Buffet Reservatation ID</h4></label>
+        <input type="text" id="input" class="mx-2 text-center" onkeyup="search()">
+    </div>
         
         <div class="w3-content" style="max-width:1532px;">
             <div class="w3-row-padding w3-padding-16">
@@ -82,13 +84,12 @@
                         <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
                     <?php } ?>
                     <div class="w3-container w3-white">
-                    <br>
-                        <p>Reservation ID : <span><?= $reqs->id ?></span></p>
+                        <br>
+                        <p>Reservation ID : <?= $reqs->id ?> </p>
                         <p>Capacity : <?= $reqs->capacity ?> </p>
                         <p>Date : <?= $reqs->date ?></p>
                         <p>Slot : <?= $reqs->slot ?></p>
                         <p>Status : <?= $reqs->status ?> </p>
-                    <br>
                     </div>
                 </div>
 
@@ -96,7 +97,7 @@
             </div>
         </div>
 </div>
-
+<br><br>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
