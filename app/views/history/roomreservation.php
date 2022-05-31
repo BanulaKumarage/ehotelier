@@ -22,10 +22,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>Room Reservation History</title>
     <script>
         function search() {
-            var input, filter, reservations, reservation, l, i, txtValue;
+            var input, filter, reservations, div, l, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             reservations = document.getElementById("reservations");
@@ -58,16 +59,14 @@
 
     <br><br><br>
 
-<div>
-    <div id="reservations">
     <h1 class="title">Room Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h1>
+
+    <input type="text" id="input" onkeyup="search()" class="m4 mb-3 text-center" placeholder="Search by reservation ID">
+
     <div class="w3-content" style="max-width:1532px;">
-        <div class="w3-row-padding w3-padding-16">
+        <div class="w3-row-padding w3-padding-16"  id="reservations">
 
-        <br><br>
 
-        <input type="text" id="input" onkeyup="search()" class="ml-1 mt-3 mb-4" placeholder="Search by reservation ID">
-        
         <?php for ($i = 0; $i < count($this->room_req_history); $i++) {
             $reqs = $this->room_req_history[$i];
             ?>
@@ -87,8 +86,6 @@
         <?php } ?>
         </div>
     </div>
-    </div>
-</div>
 
 </body>
 </html>

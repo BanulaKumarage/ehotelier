@@ -28,15 +28,15 @@
     <title>Buffet Reservation History</title>
     <script>
         function search() {
-            var input, filter, reservations, reservation, l, i, txtValue;
+            var input, filter, reservations, div, p, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             reservations = document.getElementById("reservations");
             div = reservations.getElementsByTagName("div");
 
             for (i = 0; i < div.length; i++) {
-                l = div[i].getElementsByTagName("label")[0];
-                txtValue = l.textContent || l.innerText;
+                p = div[i].getElementsByTagName("p")[0];
+                txtValue = p.textContent || p.innerText;
                 txtValue = txtValue.replace('Reservation ID : ','');
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     div[i].style.display = "";
@@ -60,41 +60,38 @@
     </nav>
 </div> <br><br><br> <br>
 
-<div id="reservations">
-    <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Buffet Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h1>
-    <br><br>
+<h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Buffet Reservation History Under Customer ID: <?= Customer::currentLoggedInCustomer()->id ?></h1>
 
-        <input type="text" id="input" onkeyup="search()" class="ml-1 mt-3 mb-4" placeholder="Search by reservation ID">
+<input type="text" id="input" onkeyup="search()" class="m-4 mb-3 text-center" placeholder="Search by reservation ID">
+
+<div class="w3-content" style="max-width:1532px;">
+    <div class="w3-row-padding w3-padding-16" id="reservations">
         
-        <div class="w3-content" style="max-width:1532px;">
-            <div class="w3-row-padding w3-padding-16">
-                
-                <?php for ($i = 0; $i < count($this->buffet_req_history); $i++) {
-                    $reqs = $this->buffet_req_history[$i];
-                ?>
+        <?php for ($i = 0; $i < count($this->buffet_req_history); $i++) {
+            $reqs = $this->buffet_req_history[$i];
+        ?>
 
-                <div class="w3-third w3-margin-bottom">
-                    <?php if($reqs->slot == "breakfast") { ?> 
-                        <img src="<?=SROOT?>images/breakfast.jpg" alt="Breakfast" style="width:100%">
-                    <?php } elseif($reqs->slot == "lunch"){ ?>
-                        <img src="<?=SROOT?>images/lunch.jpg" alt="Lunch" style="width:100%">
-                    <?php } elseif($reqs->slot == "dinner"){ ?>
-                        <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
-                    <?php } ?>
-                    <div class="w3-container w3-white">
-                    <br>
-                        <p>Reservation ID : <span><?= $reqs->id ?></span></p>
-                        <p>Capacity : <?= $reqs->capacity ?> </p>
-                        <p>Date : <?= $reqs->date ?></p>
-                        <p>Slot : <?= $reqs->slot ?></p>
-                        <p>Status : <?= $reqs->status ?> </p>
-                    <br>
-                    </div>
-                </div>
-
-                <?php } ?>
+        <div class="w3-third w3-margin-bottom">
+            <?php if($reqs->slot == "breakfast") { ?> 
+                <img src="<?=SROOT?>images/breakfast.jpg" alt="Breakfast" style="width:100%">
+            <?php } elseif($reqs->slot == "lunch"){ ?>
+                <img src="<?=SROOT?>images/lunch.jpg" alt="Lunch" style="width:100%">
+            <?php } elseif($reqs->slot == "dinner"){ ?>
+                <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
+            <?php } ?>
+            <div class="w3-container w3-white">
+            <br>
+                <p>Reservation ID : <span><?= $reqs->id ?></span></p>
+                <p>Capacity : <?= $reqs->capacity ?> </p>
+                <p>Date : <?= $reqs->date ?></p>
+                <p>Slot : <?= $reqs->slot ?></p>
+                <p>Status : <?= $reqs->status ?> </p>
+            <br>
             </div>
         </div>
+
+        <?php } ?>
+    </div>
 </div>
 
 <!-- JavaScript Bundle with Popper -->

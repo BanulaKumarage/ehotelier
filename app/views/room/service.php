@@ -44,10 +44,7 @@ if ($employee->role != 'worker') {
     <div class="container-xl mt-5 mb-5">
     <h5 class="row justify-content-center mb-3">Room Service</h5>
    
-    <div class="mx-4 my-2">
-        <label class="mx-1">Search by room number </label>
-        <input type="text" id="input" onkeyup="search()" style="width: 80px" class="text-center">
-    </div>
+    <input type="text" id="input" onkeyup="search()" class="m-3 text-center" placeholder="Search by room number">
 
     <div class="table-responsive no-wrap">
         <table class="table table-hover table-borderless align-middle no-wrap">
