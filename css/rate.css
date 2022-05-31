@@ -1,0 +1,182 @@
+*{
+    box-sizing:border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+    background-color: #200300;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+.navbar{
+    width: 40%;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float: left;
+  }
+  
+  .logo{
+      width: 120px;
+      cursor: pointer;
+  }
+  
+  nav {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 70px;
+      background-color: rgba(41, 39, 39, 0.3);
+      padding: 0 5%;
+  }
+  
+  nav .links{
+      float: right;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      /*width: 10px;*/
+      display: flex;
+      justify-content:center;
+      align-items: center;
+  }
+  
+  nav .links li {
+      list-style: none;
+  }
+  
+  nav .links a {
+      display: block;
+      padding: 1em;
+      background-color: #E07B29;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+  }
+
+  .title{
+    color: #E07B29;;
+    margin-left: 20px;
+    text-align: center;
+}
+
+  .submitBtn {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 125px;
+    border-radius: 12px;
+    background: linear-gradient(#E07B29, #AF4C23);
+    border-style: none;
+    color: white;
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .submitBtn:focus{
+      outline: none !important;
+      border-bottom: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+    }
+
+    input[type="radio"] {
+        background-color: #ddd;
+        background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
+                          -webkit-linear-gradient(90deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%);
+        border-radius: 10px;
+        box-shadow: inset 0 1px 1px hsla(0,0%,100%,.8),
+                    0 0 0 1px hsla(0,0%,0%,.6),
+                    0 2px 3px hsla(0,0%,0%,.6),
+                    0 4px 3px hsla(0,0%,0%,.4),
+                    0 6px 6px hsla(0,0%,0%,.2),
+                    0 10px 6px hsla(0,0%,0%,.2);
+        cursor: pointer;
+        display: inline-block;
+        height: 15px;
+        margin-right: 15px;
+        position: relative;
+        width: 15px;
+        -webkit-appearance: none;
+    }
+    input[type="radio"]:after {
+        background-color: #444;
+        border-radius: 25px;
+        box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                    0 1px 1px hsla(0,0%,100%,.8);
+        content: '';
+        display: block;
+        height: 7px;
+        left: 4px;
+        position: relative;
+        top: 4px;
+        width: 7px;
+    }
+    input[type="radio"]:checked:after {
+        background-color: #f66;
+        box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                    inset 0 2px 2px hsla(0,0%,100%,.4),
+                    0 1px 1px hsla(0,0%,100%,.8),
+                    0 0 2px 2px hsla(0,70%,70%,.4);
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items:center !important;
+        /*height: 65vh;*/
+      }
+      
+    .form{
+          width: 450px;
+          height: auto;
+          background-color: rgba(41, 39, 39, 0.6);
+          box-shadow: 0 5px 30px black;
+    }
+
+    .formGroup {
+        /*
+        display: block;
+        text-align: center;*/
+        margin: 25px;
+    }
+
+    .textarea{
+        display: block;
+        text-align: center;
+    }
+
+    form .textarea textarea{
+        height: 100%;
+        width: 90%;
+        outline: none;
+        color: #eee;
+        border: 1px solid #333;
+        background: transparent;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+        font-weight:lighter;
+        font-family: 'Ubuntu', sans-serif;
+      }
+
+      .textarea textarea:focus{
+        border-color: #444;
+      }
+
+      .summary{
+          text-align: center;
+      }
+
+      .summary table{
+          margin-left: auto;
+          margin-right: auto;
+      }
