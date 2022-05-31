@@ -22,13 +22,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+=======
+>>>>>>> 3dc85083d6c11721da3183547ce9f2b20420058a
     
     <title>Room Reservation History</title>
     <script>
         function search() {
-            var input, filter, reservations, reservation, l, i, txtValue;
+            var input, filter, reservations, div, l, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             reservations = document.getElementById("reservations");
@@ -71,7 +74,7 @@
     </div>
 
     <div class="w3-content" style="max-width:1532px;">
-        <div class="w3-row-padding w3-padding-16">
+        <div class="w3-row-padding w3-padding-16"  id="reservations">
 
             <?php for ($i = 0; $i < count($this->room_req_history); $i++) {
                 $reqs = $this->room_req_history[$i];

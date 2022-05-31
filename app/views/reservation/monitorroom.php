@@ -28,7 +28,7 @@
     <title> Monitor Room Status </title>
     <script>
         function search() {
-            var input, filter, rooms, room, h3, i, txtValue;
+            var input, filter, rooms, div, h3, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             rooms = document.getElementById("rooms");
@@ -65,10 +65,7 @@
 
     <h1 class="title"> Room Status </h1> <br>
     
-    <div style="margin: 0 25px 20px; ">
-        <label>Search by room number </label>
-        <input type="text" id="input" onkeyup="search()" style="margin-left:5px; text-align: center; width: 80px">
-    </div>
+    <input type="text" id="input" onkeyup="search()" style="margin-left:25px; margin-bottom:20px; text-align: center;" placeholder="Search by room number">
 
     <div class="w3-content" style="max-width:1532px;">
         <div class="w3-row-padding w3-padding-16" id="rooms">

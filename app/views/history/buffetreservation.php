@@ -28,15 +28,15 @@
     <title>Buffet Reservation History</title>
     <script>
         function search() {
-            var input, filter, reservations, reservation, l, i, txtValue;
+            var input, filter, reservations, div, p, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             reservations = document.getElementById("reservations");
             div = reservations.getElementsByTagName("div");
 
             for (i = 0; i < div.length; i++) {
-                l = div[i].getElementsByTagName("label")[0];
-                txtValue = l.textContent || l.innerText;
+                p = div[i].getElementsByTagName("p")[0];
+                txtValue = p.textContent || p.innerText;
                 txtValue = txtValue.replace('Reservation ID : ','');
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     div[i].style.display = "";
@@ -96,7 +96,6 @@
                 <?php } ?>
             </div>
         </div>
-</div>
 <br><br>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
