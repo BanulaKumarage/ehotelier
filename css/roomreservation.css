@@ -29,7 +29,7 @@ body{
       top: 0;
       height: 70px;
       background-color: rgba(41, 39, 39, 0.3);
-      padding: 0 5%;
+      padding: 0 2%;
   }
   
   nav .links{
@@ -91,3 +91,21 @@ body{
     font-weight: bold;
     color: white;
   }
+
+  @media only screen and (max-width: 500px){
+    nav .links{
+        font-size: 15px;
+    }
+    }
+
+    @media only screen and (max-width: 400px){
+    nav .links{
+        font-size: 13px;
+    }
+    }
+
+    @media only screen and (max-width: 320px){
+    nav .links{
+        font-size: 10px;
+    }
+    }

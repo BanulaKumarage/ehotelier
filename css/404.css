@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-color: #200300;
+}
+
+.navbar{
+  width: 40%;
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  float: left;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 70px;
+    background-color: rgba(41, 39, 39, 0.3);
+    padding: 0 2%;
+}
+
+nav .links{
+    float: right;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    /*width: 10px;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+nav .links li {
+    list-style: none;
+}
+
+nav .links a {
+    display: block;
+    padding: 1em;
+    background-color: #E07B29;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    background-color: #200300;
+    height: 300px;
+    width: 60%;
+    position: relative;
+    margin-top: 120px;
+    display:table;
+    border-radius: 15px;
+}
+
+h1{
+    color: #E07B29;
+    text-align: center;
+    display:table-cell; 
+    vertical-align:middle;
+    font-size: 400%;
+}
+
+@media only screen and (max-width: 500px){
+    nav .links{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    nav .links{
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 320px){
+    nav .links{
+        font-size: 10px;
+    }
+}
