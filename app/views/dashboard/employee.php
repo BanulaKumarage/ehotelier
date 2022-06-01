@@ -32,6 +32,7 @@
                     ?>
             </strong>
         </div>
+
         <nav>
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
@@ -40,6 +41,7 @@
             <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
         </ul>
         </nav>
+        
         <div class="content">
             <div class="title"> 
                 <h1> <?= $_SESSION['employeename'] . " : " . ucwords($_SESSION['role']) ?> </h1> 

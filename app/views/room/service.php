@@ -12,6 +12,10 @@ if ($employee->role != 'worker') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=SROOT?>css/service.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Room Service</title>
     <script>
@@ -39,26 +43,37 @@ if ($employee->role != 'worker') {
     </script>
 </head>
 
-<body>
+<body style="background-color: #200300; font-family: 'Ubuntu', sans-serif;">
+
+    <div>
+    <nav>
+        <div class="navbar">
+            <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
+        </div>
+        <ul class="links">
+            <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
+        </ul>
+    </nav>
+    </div> <br>
 
     <div class="container-xl mt-5 mb-5">
-    <h5 class="row justify-content-center mb-3">Room Service</h5>
+    <h1 class="title">Room Service</h1>
    
-    <input type="text" id="input" onkeyup="search()" class="m-3 text-center" placeholder="Search by room number">
+    <input type="text" id="input" onkeyup="search()" class="m-3 text-center" placeholder="Search by room number"> <br>
 
     <div class="table-responsive no-wrap">
-        <table class="table table-hover table-borderless align-middle no-wrap">
-            <thead class="thead">
+        <table class="table table-hover table-borderless align-middle no-wrap" style="--bs-table-hover-color: #E07B29;">
+            <thead class="thead" style="color: #E07B29;">
                 <tr>
                     <th>Room</th>
                     <th>Type</th>
                     <th>Capacity</th>
                     <th>Status</th>
                     <th>Last Service</th>
-                    <th></th>
+                    <th> Update Status</th>
                 </tr>
             </thead>
-            <tbody id="rooms">
+            <tbody id="rooms" style="color: white;">
             <?php $rooms = $this->roomDetails; 
                 foreach ($rooms as $room) {
                     $room = (array) $room;?>
