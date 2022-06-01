@@ -20,19 +20,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <style>
+        .actions a:hover{
+            color: white;
+        }
+
+        .alert-dismissible .btn-close {
+           padding: 0.3em;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="banner">
-        <div>
-            <strong><?php 
-                        if (isset($_SESSION['message'])){
-                            echo $_SESSION['message'];
-                            unset($_SESSION['message']);
-                        }
-                        
-                    ?>
-            </strong>
-        </div>
         <nav>
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
@@ -41,11 +43,25 @@
             <li> <a href="<?=SROOT?>CustomerRegister/logout"> Logout </a></li>
         </ul>
         </nav>
+
         <div class="content">
+
+        <?php if (isset($_SESSION['message'])){ ?>
+        <div class="alertBox">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 70%; text-align:center; display:inline-block;">
+            <strong> <?php echo $_SESSION['message']; ?> </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> 
+            <?php unset($_SESSION['message']); ?>
+        </div>
+        <?php } else { ?>
+            <br><br><br><br><br>
+        <?php } ?>
+        
             <div class="title"> 
-                <h1>Hello <?= $_SESSION['customername'] ?>!</h1> 
+                <h1>Hello <?= $_SESSION['customername'] ?>!</h1>
             </div>
-            <br> <br>
+
             <div class="actions">
                 <ul>
                     <li><a href="<?=SROOT?>ReservationHandler/roomreservation"> Room Reservation </a></li>
