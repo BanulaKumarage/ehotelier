@@ -19,6 +19,7 @@ if (isset($_SESSION['role'])){
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<?=SROOT?>images/favicon2.jpg" type="image/jpg">
   <link rel="stylesheet" href="<?=SROOT?>css/room.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
