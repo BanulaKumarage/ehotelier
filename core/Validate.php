@@ -78,7 +78,7 @@ class Validate
                         case 'valid_username':
                             $check = $this->_db->query("SELECT {$item} FROM {$rule_value} WHERE {$item} = ? and is_closed = ?", [$value,0]);
                             if (!$check->count()) {
-                                $this->addError(["{$display} does not exists. please try again {$display}", $item]);
+                                $this->addError(["{$display} does not exists. please check the {$display} again.", $item]);
                             }
                             break;
                         case 'valid_reservationid':

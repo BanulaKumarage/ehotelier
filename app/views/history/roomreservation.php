@@ -56,7 +56,7 @@
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
         <ul class="links">
-            <li> <a href="" style="font-family: 'Ubuntu', sans-serif;"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+            <li> <a href="<?=SROOT?>" style="font-family: 'Ubuntu', sans-serif;"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
             <li> <a href="<?=SROOT?>CustomerRegister/logout" style="font-family: 'Ubuntu', sans-serif;"> Logout </a></li>
         </ul>
     </nav>
@@ -73,7 +73,8 @@
     <div class="w3-content" style="max-width:1532px;">
         <div class="w3-row-padding w3-padding-16" id="reservations">
 
-            <?php for ($i = 0; $i < count($this->room_req_history); $i++) {
+            <?php if (count($this->room_req_history)>0 ) { 
+                for ($i = 0; $i < count($this->room_req_history); $i++) {
                 $reqs = $this->room_req_history[$i];
             ?>
 
@@ -88,8 +89,9 @@
                     </div>
                 </div>
 
-            <?php } ?>
-
+            <?php }} else {?>
+                <h2 style="font-family: 'Ubuntu', sans-serif; margin-left:20px; color:white">No Room Reservation History</h2>
+            <?php }?>
         </div>
     </div>
 

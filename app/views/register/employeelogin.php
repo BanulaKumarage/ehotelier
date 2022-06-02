@@ -26,7 +26,7 @@
             <h1> Employee Login </h1> <br>
             <form action="<?=SROOT?>EmployeeRegister/login" method="post">
             <div class="formGroup">
-                <input type="text" name="username" placeholder="User Name" required>
+                <input type="text" name="username" placeholder="Username" required>
             </div> <br>
             <div class="formGroup">
                 <input type="password" name="password" placeholder="Password" required>

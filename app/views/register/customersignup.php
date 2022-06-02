@@ -32,7 +32,7 @@
           <input type="text" name="contact_no" value="<?php echo htmlspecialchars($_POST['contact_no'] ?? '', ENT_QUOTES); ?>" placeholder="Contact Number" required>
         </div>
         <div class="formGroup">
-          <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="User Name" required>
+          <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="Username" required>
         </div>
         <div class="formGroup">
           <input type="password" name="password" value="<?php echo htmlspecialchars($_POST['password'] ?? '', ENT_QUOTES); ?>" placeholder="Password" required>

@@ -38,7 +38,7 @@ $customer = Customer::currentLoggedInCustomer();
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
         <ul class="links">
-            <li> <a href=""> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+            <li> <a href="<?=SROOT?>"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
             <li> <a href="<?=SROOT?>CustomerRegister/logout"> Logout </a></li>
         </ul>
         </nav>

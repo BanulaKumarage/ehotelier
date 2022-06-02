@@ -9,9 +9,15 @@ class Home extends Controller{
 
     public function indexAction(){
         $message = $_SESSION['message'] ?? "";
-        Session::delete();
-        $_SESSION['message'] = $message;
-        $this->view->render('home/index');
+        if (isset($_SESSION['customername'])){
+            Router::redirect("CustomerDashboard");
+        }elseif(isset($_SESSION['employeename'])){
+            Router::redirect("EmployeeDashboard");
+        }else {
+            Session::delete();
+            $_SESSION['message'] = $message;
+            $this->view->render('home/index');
+        }        
     }
 
 }

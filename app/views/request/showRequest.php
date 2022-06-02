@@ -41,7 +41,7 @@
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
         <ul class="links">
-            <li> <a href=""> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+            <li> <a href="<?=SROOT?>"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
             <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
         </ul>
     </nav>
@@ -52,7 +52,7 @@
     <div class="w3-content" style="max-width:1532px;">
     <div class="w3-row-padding w3-padding-16">
 
-    <?php
+    <?php if (count($this->customerRequests) > 0) {
     foreach ($this->customerRequests as $customerRequest) { ?>
     
         <div class="w3-third w3-margin-bottom">
@@ -73,7 +73,10 @@
         
             
     <br><br>
-    <?php } ?>
+    <?php }} else{ ?>
+        <h2 style="font-family: 'Ubuntu', sans-serif; margin-left:20px; color:white">No Assigned Customer Requests</h2>
+    <?php }?>
+
 
     </div>
     </div>

@@ -105,7 +105,7 @@
                 $this->EmployeeModel = new Employee();
                 if ($_POST['username']){
                     $this->EmployeeModel->removeEmployee($_POST);
-                    $_SESSION['message'] = "Employ is removed";
+                    $_SESSION['message'] = "Employee is removed";
                     Router::redirect('EmployeeDashboard');
                 }
                 if ($_POST['cancel']){

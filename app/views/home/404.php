@@ -1,3 +1,15 @@
+<?php
+    $logoutlink = "";
+    if (isset($_SESSION['customername'])){
+        $logoutlink = "EmployeeRegister/logout";
+    }elseif(isset($_SESSION['employeename'])){
+        $logoutlink = "CustomerRegister/logout";
+    }
+    $logoutlink = SROOT.$logoutlink;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +31,10 @@
                 <img src="<?=SROOT?>images/logo-1.png" class="logo">
             </div>
             <ul class="links">
-                <li> <a href=""> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
-                <li> <a href=""> Logout </a></li>
+                <li> <a href="<?=SROOT?>"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+                <?php if (isset($_SESSION['customername']) || isset($_SESSION['employeename'])) {?>
+                <li> <a href=<?=$logoutlink?>> Logout </a></li>
+                <?php }?>
             </ul>
         </nav>
         </div>

@@ -31,7 +31,7 @@
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
         <ul class="links">
-            <li> <a href=""> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+            <li> <a href="<?=SROOT?>"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
             <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
         </ul>
     </nav>
@@ -54,7 +54,7 @@
               <input type="text" name="contact_no" value="<?php echo htmlspecialchars($_POST['contact_no'] ?? '', ENT_QUOTES); ?>" placeholder="Contact Number" required>
             </div>
             <div class="formGroup">
-              <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="User Name" required>
+              <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="Username" required>
             </div>
             <div class="formGroup">
                 <input type="text" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES); ?>" placeholder="Email" required>

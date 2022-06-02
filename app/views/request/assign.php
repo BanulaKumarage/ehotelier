@@ -28,7 +28,7 @@ if ($employee->role != 'customercareofficer') {
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
         <ul class="links">
-            <li> <a href=""> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
+            <li> <a href="<?=SROOT?>"> Dashboard </a></li> <p>&nbsp;&nbsp;</p>
             <li> <a href="<?= SROOT ?>EmployeeRegister/logout"> Logout </a></li>
         </ul>
     </nav>
@@ -114,9 +114,9 @@ $count = 0 ?>
             </div>
     <?php $count++;
         } 
-    } else {
-        echo 'No customer requests'; 
-    }?>
+    } else { ?>
+        <h2 style="font-family: 'Ubuntu', sans-serif; margin-left:20px; color:white">No Customer Requests</h2>
+    <?php }?>
         </div>
         
 
