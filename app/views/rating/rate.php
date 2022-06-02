@@ -47,7 +47,9 @@ $customer = Customer::currentLoggedInCustomer();
     <br><br><br>
 
     <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Rate eHotelier </h1> 
-
+    <?php if (!$this->ratings){
+        $this->ratings = [];
+    }?>
     <?php 
     $rated = false;
     foreach ($this->ratings as $rating) {

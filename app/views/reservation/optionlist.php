@@ -1,11 +1,6 @@
 <?php 
-    if (!isset($_SESSION['customername'])){
-        if (isset($_SESSION['employeename'])){
-            Router::redirect('EmployeeDashboard');
-        }else {
-            Router::redirect('');
-        }
-        
+    if (!isset($_SESSION['customername']) && !isset($_SESSION['employeename'])){
+        Router::redirect('');
     }
 ?>
 
@@ -73,7 +68,7 @@
               <?php } elseif($options[0]->type == "Suite"){ ?>
               <img src="<?=SROOT?>images/suite.jpg" alt="Suite" style="width:100%">
               <?php } elseif($options[0]->type == "Triple"){ ?>
-              <img src="<?=SROOT?>images/triple.jpg" alt="Triple" style="width:100%">
+              <img src="<?=SROOT?>images/triple.jpeg" alt="Triple" style="width:100%">
               <?php } ?>
               <div class="w3-container w3-white">
                 <h3> Room Type : <?= $options[0]->type ?> </h3>
@@ -82,6 +77,7 @@
                 <h6 class="w3-opacity"> Check-out Date : <?= $_SESSION['check_out_date'] ?> </h6>
                 <h6 class="w3-opacity"> <?= $types[$_SESSION['type']] ?> </h6>
                 <h6 class="w3-opacity"> <?= $options[0]->capacity.' x '.count($options)." Rooms" ?>  </h6>
+                <h6 class="w3-opacity"> Rs. <?= number_format($options[0]->price*count($options),2)?>  </h6>
                 <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
                 <button class="w3-button w3-block w3-black w3-margin-bottom" onclick="location.href='<?=SROOT?>ReservationHandler/reserve/<?= $i ?>'"> Reserve </button>
               </div>

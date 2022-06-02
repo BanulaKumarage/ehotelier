@@ -56,4 +56,9 @@ class Room extends Model{
             ]);
         }
     }
+
+    public function addRoom($params){
+        $this->assign($params);
+        $this->save();
+    }
 }

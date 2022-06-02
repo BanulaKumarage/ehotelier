@@ -21,4 +21,25 @@ class RoomStatus extends Controller {
         }
     }
 
+    public function addRoomAction(){
+        if ($_POST){
+            $types = [
+                'Suite'=>[4,35000],
+                'Quad'=>[4,33000],
+                'Deluxe'=>[4,25000],
+                'Premium Deluxe'=>[4,30000],
+                'Triple'=>[4,28000],
+                'Single'=>[4,22000]
+            ];
+            $_POST['capacity'] = $types[$_POST['type']][0];
+            $_POST['price'] = $types[$_POST['type']][1];
+            $_POST['status'] = 'vacant';
+            $this->RoomModel->addRoom($_POST);
+            $_SESSION['message'] = "A new room added";
+            Router::redirect("EmployeeDashboard");
+        }else {
+            $this->view->render('room/addroom');
+        }
+    }
+
 }

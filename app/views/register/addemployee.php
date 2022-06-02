@@ -66,7 +66,7 @@
               <input type="password" name="repassword" value="<?php echo htmlspecialchars($_POST['repassword'] ?? '', ENT_QUOTES); ?>" placeholder="Confirm Password" required>
             </div>
             <div class="formGroup">
-                <select class="formSelect" name='role' onchange='this.form.submit()' style="width:80%;" id="role">
+                <select class="formSelect" name='role' style="width:80%;" id="role">
                     <option value='worker'>Worker</option>
                     <option value='customercareofficer'>Customer Care Officer</option>
                 </select>

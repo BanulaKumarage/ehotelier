@@ -104,8 +104,10 @@
         </div>
 
 
-    <?php } ?>
-
+    <?php }else{ ?>
+        <h2 style="font-family: 'Ubuntu', sans-serif; margin-left:20px; color:white">No Ratings Available</h2>
+    <?php }?>      
+   
 </body>
 
 </html>

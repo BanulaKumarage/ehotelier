@@ -75,6 +75,7 @@
                     <li><a href="<?= SROOT ?>ReservationHandler/monitorroom">Monitor Room status</a></li>
                     <li><a href="<?= SROOT ?>EmployeeRegister/addemployee">Add/Remove Employee</a></li>
                     <li><a href="<?= SROOT ?>HotelReview">View Customer Ratings</a></li>
+                    <li><a href="<?= SROOT ?>RoomStatus/addroom">Add a new Room</a></li>
                     <?php } else { ?>
                     <li><a href="<?= SROOT ?>CustomerRequestHandler/showRequest"> Assigned Customer Requests</a></li> <br>
                     <li><a href="<?= SROOT ?>RoomStatus/service">Update Room Service</a></li>

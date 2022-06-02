@@ -144,8 +144,8 @@ class ReservationHandler extends Controller
 
         if ($_POST) {
             $this->Buffet_reservationModel->change_br_status($id, $_POST['buffet_res_status']);
+            Router::redirect("ReservationHandler/buffetrequest");
         }
-
 
     }
 

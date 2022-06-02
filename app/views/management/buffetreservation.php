@@ -108,7 +108,7 @@
                 <p>Slot : <?= $reqs->slot ?></p>
                 <p>Status : <?= $reqs->status ?> </p>
                 <form action="<?= SROOT ?>ReservationHandler/changebuffetreservation_status/<?= $reqs->id ?>" method="post">
-                    <select class="form-select" name="room_res_status" style="max-width:90%;">
+                    <select class="form-select" name="buffet_res_status" style="max-width:90%;">
                         <option value="" disabled selected> Select Status</option>
                         <option value="accepted">Accepted</option>
                         <option value="paid">Paid</option>
