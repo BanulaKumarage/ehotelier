@@ -36,7 +36,7 @@
 
         <div class="content">
 
-        <?php if (isset($_SESSION['message'])){ ?>
+        <?php if (isset($_SESSION['message']) && $_SESSION['message'] !== ""){ ?>
             <div class="alertBox">
                 <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 70%; text-align:center; display:inline-block;">
                 <strong> <?php echo $_SESSION['message']; ?> </strong>
