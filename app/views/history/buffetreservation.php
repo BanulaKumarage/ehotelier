@@ -62,7 +62,6 @@
     </nav>
 </div> <br><br><br>
 
-<div id="reservations">
     <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Your Buffet Reservation History </h1> <br>
     
     <div class="text-light mx-4 mt-3 mb-4">
@@ -70,34 +69,34 @@
         <input type="text" id="input" class="mx-2 text-center" onkeyup="search()">
     </div>
         
-        <div class="w3-content" style="max-width:1532px;">
-            <div class="w3-row-padding w3-padding-16">
-                
-                <?php for ($i = 0; $i < count($this->buffet_req_history); $i++) {
-                    $reqs = $this->buffet_req_history[$i];
-                ?>
+    <div class="w3-content" style="max-width:1532px;">
+        <div class="w3-row-padding w3-padding-16" id="reservations">
+            
+            <?php for ($i = 0; $i < count($this->buffet_req_history); $i++) {
+                $reqs = $this->buffet_req_history[$i];
+            ?>
 
-                <div class="w3-third w3-margin-bottom">
-                    <?php if($reqs->slot == "breakfast") { ?> 
-                        <img src="<?=SROOT?>images/breakfast.jpg" alt="Breakfast" style="width:100%">
-                    <?php } elseif($reqs->slot == "lunch"){ ?>
-                        <img src="<?=SROOT?>images/lunch.jpg" alt="Lunch" style="width:100%">
-                    <?php } elseif($reqs->slot == "dinner"){ ?>
-                        <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
-                    <?php } ?>
-                    <div class="w3-container w3-white">
-                        <br>
-                        <p>Reservation ID : <?= $reqs->id ?> </p>
-                        <p>Capacity : <?= $reqs->capacity ?> </p>
-                        <p>Date : <?= $reqs->date ?></p>
-                        <p>Slot : <?= $reqs->slot ?></p>
-                        <p>Status : <?= $reqs->status ?> </p>
-                    </div>
-                </div>
-
+            <div class="w3-third w3-margin-bottom">
+                <?php if($reqs->slot == "breakfast") { ?> 
+                    <img src="<?=SROOT?>images/breakfast.jpg" alt="Breakfast" style="width:100%">
+                <?php } elseif($reqs->slot == "lunch"){ ?>
+                    <img src="<?=SROOT?>images/lunch.jpg" alt="Lunch" style="width:100%">
+                <?php } elseif($reqs->slot == "dinner"){ ?>
+                    <img src="<?=SROOT?>images/dinner.jpg" alt="Dinner" style="width:100%">
                 <?php } ?>
+                <div class="w3-container w3-white">
+                    <br>
+                    <p>Reservation ID : <?= $reqs->id ?> </p>
+                    <p>Capacity : <?= $reqs->capacity ?> </p>
+                    <p>Date : <?= $reqs->date ?></p>
+                    <p>Slot : <?= $reqs->slot ?></p>
+                    <p>Status : <?= $reqs->status ?> </p>
+                </div>
             </div>
+
+            <?php } ?>
         </div>
+    </div>
 <br><br>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

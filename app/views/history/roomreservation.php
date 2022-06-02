@@ -29,15 +29,15 @@
     <title>Room Reservation History</title>
     <script>
         function search() {
-            var input, filter, reservations, div, l, i, txtValue;
+            var input, filter, reservations, div, p, i, txtValue;
             input = document.getElementById("input");
             filter = input.value.toUpperCase();
             reservations = document.getElementById("reservations");
             div = reservations.getElementsByTagName("div");
 
             for (i = 0; i < div.length; i++) {
-                l = div[i].getElementsByTagName("label")[0];
-                txtValue = l.textContent || l.innerText;
+                p = div[i].getElementsByTagName("p")[0];
+                txtValue = p.textContent || p.innerText;
                 txtValue = txtValue.replace('Reservation ID : ','');
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     div[i].style.display = "";
@@ -63,8 +63,6 @@
 
     <br><br><br>
 
-<div>
-    <div id="reservations">
     <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Your Room Reservation History </h1> <br>
     
     <div class="text-light mx-4 mt-3 mb-4">
@@ -73,7 +71,7 @@
     </div>
 
     <div class="w3-content" style="max-width:1532px;">
-        <div class="w3-row-padding w3-padding-16"  id="reservations">
+        <div class="w3-row-padding w3-padding-16" id="reservations">
 
             <?php for ($i = 0; $i < count($this->room_req_history); $i++) {
                 $reqs = $this->room_req_history[$i];
@@ -94,9 +92,6 @@
 
         </div>
     </div>
-
-    </div>
-</div>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
