@@ -44,10 +44,10 @@ if ($employee->role != 'worker') {
     </script>
 </head>
 
-<body style="background-color: #200300; font-family: 'Ubuntu', sans-serif;">
+<body style="background-color: #200300;">
 
     <div>
-    <nav>
+    <nav style="font-family: 'Ubuntu', sans-serif;">
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
@@ -59,7 +59,7 @@ if ($employee->role != 'worker') {
     </div> <br>
 
     <div class="container-xl mt-5 mb-5">
-    <h1 class="title">Room Service</h1>
+    <h1 class="title" style="font-family: 'Ubuntu', sans-serif;">Room Service</h1>
    
     <input type="text" id="input" onkeyup="search()" class="m-3 text-center" placeholder="Search by room number"> <br>
 

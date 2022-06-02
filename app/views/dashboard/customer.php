@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Customer Dashboard </title>
     <link rel="icon" href="<?=SROOT?>images/favicon2.jpg" type="image/jpg">
-    <link rel="stylesheet" href="<?=SROOT?>css/dashboard.css">
+    <link rel="stylesheet" href="<?=SROOT?>css/customerDashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
@@ -66,9 +66,9 @@
             <div class="actions">
                 <ul>
                     <li><a href="<?=SROOT?>ReservationHandler/roomreservation"> Room Reservation </a></li>
-                    <li><a href="<?=SROOT?>ReservationHandler/buffetreservation"> Buffet Reservation </a></li>
+                    <li><a href="<?=SROOT?>ReservationHandler/buffetreservation"> Buffet Reservation </a></li> <br>
                     <li><a href="<?=SROOT?>CustomerRequestHandler/create"> Make a Request </a></li>
-                    <li><a href="<?=SROOT?>HotelReview/rate"> Rate the Hotel </a></li>
+                    <li><a href="<?=SROOT?>HotelReview/rate"> Rate the Hotel </a></li> <br>
                     <li><a href="<?=SROOT?>ReservationHandler/buffetreservationhistory"> Buffet Reservation History </a></li>
                     <li><a href="<?=SROOT?>ReservationHandler/roomreservationhistory"> Room Reservation History </a></li>
                 </ul>
