@@ -53,7 +53,7 @@
 <body style="background-color: #200300;">
 
     <div>
-    <nav>
+    <nav style="font-family: 'Ubuntu', sans-serif;">
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
@@ -64,7 +64,7 @@
     </nav>
     </div> <br><br><br>
 
-    <h1 class="title"> Room Reservation Details </h1> <br>
+    <h1 class="title" style="font-family: 'Ubuntu', sans-serif;"> Room Reservation Details </h1> <br>
     <div class="text-light mx-4 mt-3 mb-4">
         <label><h4>Search by Reservatation ID</h4></label>
         <input type="text" id="input" class="mx-2 text-center" onkeyup="search()">

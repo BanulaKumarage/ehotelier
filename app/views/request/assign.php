@@ -20,10 +20,10 @@ if ($employee->role != 'customercareofficer') {
     <title>Manage Customer Requests</title>
 
 </head>
-<body style="background-color: #200300; font-family: 'Ubuntu', sans-serif;">
+<body style="background-color: #200300;">
 
     <div>
-    <nav>
+    <nav style="font-family: 'Ubuntu', sans-serif;">
         <div class="navbar">
             <a href="<?=SROOT?>"> <img src="<?=SROOT?>images/logo-1.png" class="logo"> </a>
         </div>
@@ -38,7 +38,7 @@ if ($employee->role != 'customercareofficer') {
 
 <?php $requests = $this->pendingRequests;
 $count = 0 ?>
-<h1 class="row justify-content-center mb-3" style="color: #E07B29;">Manage Customer Requests</h1> <br>
+<h1 class="row justify-content-center mb-3" style="color: #E07B29; font-family: 'Ubuntu', sans-serif;">Manage Customer Requests</h1> <br>
 <div class="accordion accordion-flush" id="accordionFlushExample">
 
     <?php if($requests) {   
