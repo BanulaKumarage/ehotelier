@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: 'Ubuntu', sans-serif;
+    /*background-attachment: fixed;*/
+  }
+  
+  .banner{
+    width: 100%;
+    background-color: #200300;
+  }
+  
+  .navbar{
+    width: 40%;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float: left;
+  }
+  
+  .logo{
+      width: 120px;
+      cursor: pointer;
+  }
+  
+  nav {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 70px;
+      background-color: rgba(41, 39, 39, 0.3);
+      padding: 0 5%;
+  }
+  
+  nav .links{
+      float: right;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      /*width: 10px;*/
+      display: flex;
+      justify-content:center;
+      align-items: center;
+  }
+  
+  nav .links li {
+      list-style: none;
+  }
+  
+  nav .links a {
+      display: block;
+      padding: 1em;
+      background-color: #E07B29;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+  }
+  
+  /* align items center vertically and horizontally  */
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items:center !important;
+    height: 40vh;
+  }
+  
+    .form{
+      width: 400px;
+      height: 250px;
+      background-color: rgba(41, 39, 39, 0.6);
+      box-shadow: 0 5px 30px black;
+    }
+  
+    .btn button {
+      padding: 3px;
+      margin: 30px 0px 40px 30px;
+      border-style: none;
+      background-color: transparent;
+      color: beige;
+      font-size: 18px;
+      font-weight: 550;
+    }
+  
+    .formGroup{
+      display: flex;
+      justify-content: center;
+    }
+  
+    .formGroup input{
+      border: none;
+      width: 80%;
+      border-bottom: 2px solid white;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: transparent;
+      color: white;
+    }
+  
+    input:focus {
+      outline: none !important;
+      border-bottom: 2px solid #E07B29;
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+    }
+  
+    ::placeholder {
+      color: white;
+    }
+
+    .form-select {
+      border: none;
+      width: 80%;
+      border-bottom: 2px solid white;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: transparent;
+      color: white;
+  }
+
+  .form-select:focus {
+      outline: none !important;
+      border-bottom: 2px solid #E07B29;
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+  }
+
+  option {
+      font-size: 15px;
+      color: white;
+      background-color: rgba(41, 39, 39, 0.9);
+  }
+  
+    .checkBox{
+      display: flex;
+      justify-content: center;
+      margin: 16px!important;
+    }
+     
+    #checkbox{
+      margin-right: 10px;
+      height: 15px;
+      width: 15px;
+    }
+  
+    .text{
+      color: rgb(199, 197, 197);
+      font-size: 13px;
+    }
+  
+    .submitBtn {
+      text-align: center;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+  
+      padding: 10px;
+      width: 150px;
+      border-radius: 20px;
+      background: linear-gradient(#E07B29, #AF4C23);
+      border-style: none;
+      color: white;
+      font-weight: 600;
+    }
+  
+    .submitBtn:focus{
+      outline: none !important;
+      border-bottom: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+    }
+  
+    h1{
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: beige;
+      font-size: 30px;
+      font-weight: 550;
+      text-align: center;
+    }
+  
+    .errors{
+      font-size: 16px;
+      color: red;
+      text-align: center;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+    }
+  
+    li{
+      text-decoration: none; 
+      list-style-type: none;
+    }
+
+    .w3-fifth{
+        float: left;
+        width: 100%;
+    }
+
+    .w3-row-padding > .w3-fifth{
+        padding: 0 8px;
+    }
+
+    @media (min-width: 601px) {
+        .w3-fifth {
+            width: 20%;
+          }
+    }
+    

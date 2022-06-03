@@ -62,7 +62,13 @@
         <?php } ?>
     
             <div class="title"> 
-                <h1> <?= $_SESSION['employeename'] . " : " . ucwords($_SESSION['role']) ?> </h1>  <br>
+                <?php if($_SESSION['role'] == 'manager') { ?>
+                <h1> <img src="<?=SROOT?>images/manager.png"> &nbsp; <?= ucwords($_SESSION['role']) . " : " . $_SESSION['employeename'] ?> </h1>  <br>
+                <?php } elseif($_SESSION['role'] == 'customercareofficer') { ?> 
+                <h1> <img src="<?=SROOT?>images/customercareofficer.png"> &nbsp; Customer Care Officer <?= " : " . $_SESSION['employeename']?> </h1>  <br>
+                <?php } elseif($_SESSION['role'] == 'worker') { ?>
+                <h1> <img src="<?=SROOT?>images/worker.png"> &nbsp; <?= ucwords($_SESSION['role']) . " : " . $_SESSION['employeename'] ?> </h1>  <br>
+                <?php } ?>
             </div>
             <div class="actions">
                 <ul>
@@ -73,7 +79,7 @@
                     <li><a href="<?= SROOT ?>CustomerRequestHandler/assignRequest">Manage Customer Requests</a></li>
                     <?php } elseif ($_SESSION['role'] === 'manager') { ?>
                     <li><a href="<?= SROOT ?>ReservationHandler/monitorroom">Monitor Room status</a></li>
-                    <li><a href="<?= SROOT ?>EmployeeRegister/addemployee">Add/Remove Employee</a></li>
+                    <li><a href="<?= SROOT ?>EmployeeRegister/addemployee">Add/Remove Employee</a></li> <br>
                     <li><a href="<?= SROOT ?>HotelReview">View Customer Ratings</a></li>
                     <li><a href="<?= SROOT ?>RoomStatus/addroom">Add a new Room</a></li>
                     <?php } else { ?>
