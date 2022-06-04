@@ -86,7 +86,7 @@
               <?php } elseif($roomDetail->{'type'} == "Suite"){ ?>
               <img src="<?=SROOT?>images/suite.jpg" alt="Suite" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Triple"){ ?>
-              <img src="<?=SROOT?>images/triple.jpg" alt="Triple" style="width:100%">
+              <img src="<?=SROOT?>images/triple.jpeg" alt="Triple" style="width:100%">
               <?php } ?>
               <div class="w3-container w3-white">
                 <h3> Room NO: <?php echo $roomDetail->{'id'} ?> </h3>
