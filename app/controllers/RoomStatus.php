@@ -10,6 +10,7 @@ class RoomStatus extends Controller {
 
     public function serviceAction() {
         if ($_POST) {
+            date_default_timezone_set('Asia/Colombo');
             $this->RoomModel->update($_POST['id'],[
                 'last_service'=>date('Y-m-d H:i:s')
             ]);
