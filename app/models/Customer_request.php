@@ -10,6 +10,7 @@ class Customer_request extends Model{
     }
 
     public function createRequest($params){
+        date_default_timezone_set('Asia/Colombo');
         $params['customer_id'] = Customer::currentLoggedInCustomer()->id;
         $params['status'] = 'pending';
         $params['timestamp'] = date('Y-m-d H:i:s');

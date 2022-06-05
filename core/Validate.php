@@ -166,6 +166,7 @@ class Validate
 
     public function dateCheck($startDate, $endDate)
     {
+        date_default_timezone_set('Asia/Colombo');
         if ($startDate >= $endDate) {
             $this->addError(["Check-in Date must be after the Check-out Date"]);
         }
@@ -176,6 +177,7 @@ class Validate
 
     public function currentDatecheck($date)
     {
+        date_default_timezone_set('Asia/Colombo');
         if ($date <= date('Y-m-d')) {
             $this->addError(["Check-in Date must be after the Current Date " . date('Y/m/d')]);
         }
