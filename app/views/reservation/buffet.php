@@ -57,7 +57,8 @@ $customer = Customer::currentLoggedInCustomer();
             <input type="text" name="capacity" value="<?php echo htmlspecialchars($_POST['capacity'] ?? '', ENT_QUOTES); ?>" placeholder="No of people" required>
         </div>
         <div class="formGroup">
-            <input type="date" name="date" value="<?php echo htmlspecialchars($_POST['date'] ?? '', ENT_QUOTES); ?>" placeholder="Date" required>
+            <input type="text" name="date" value="<?php echo htmlspecialchars($_POST['date'] ?? '', ENT_QUOTES); ?>" 
+            onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Date" required>
         </div>
         <div class="formGroup">
             <select class="form-select" name='slot'>

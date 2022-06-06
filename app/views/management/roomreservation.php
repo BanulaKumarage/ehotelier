@@ -99,7 +99,7 @@
                 <p>Check-in Date : <?= $reqs->check_in_date ?></p>
                 <p>Check-out Date : <?= $reqs->check_out_date ?> </p>
                 <p>Type : <?= $reqs->type ?></p>
-                <p>Status : <?= $reqs->status ?> </p>
+                <p>Status : <?= ucwords($reqs->status) ?> </p>
                 <form action="<?= SROOT ?>ReservationHandler/changeroomreservation_status/<?= $reqs->id ?>" method="post">
                     <select class="form-select" name="room_res_status" style="max-width:90%;">
                         <option value="" disabled selected>Choose Status</option>

@@ -90,7 +90,7 @@
                 <form class="removeEmp" action="<?=SROOT?>EmployeeRegister/removeEmployee" method="post">
                 <br>
                 <div class="formGroup">
-                  <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="User Name" required>
+                  <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? '', ENT_QUOTES); ?>" placeholder="Username" required>
                 </div>
                 <input type="submit" class="submitBtn" value="RemoveEmployee"> 
                 <br>

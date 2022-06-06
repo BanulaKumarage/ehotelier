@@ -56,10 +56,12 @@ if (isset($_SESSION['role'])){
             <input type="text" name="occupancy" value="<?php echo htmlspecialchars($_POST['occupancy'] ?? '', ENT_QUOTES); ?>" placeholder="No of people" required>
         </div>
         <div class="formGroup">
-            <input type="date" name="check_in_date" value="<?php echo htmlspecialchars($_POST['check_in_date'] ?? '', ENT_QUOTES); ?>" placeholder="Check-in date" required>
+            <input type="text" name="check_in_date" value="<?php echo htmlspecialchars($_POST['check_in_date'] ?? '', ENT_QUOTES); ?>" 
+            onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Check-in date" required>
         </div>
         <div class="formGroup">
-            <input type="date" name="check_out_date" value = "<?php echo htmlspecialchars($_POST['check_out_date'] ?? '', ENT_QUOTES); ?>" placeholder="Check-out date" required>
+            <input type="text" name="check_out_date" value = "<?php echo htmlspecialchars($_POST['check_out_date'] ?? '', ENT_QUOTES); ?>" 
+            onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Check-out date" required>
         </div>
         <div class="formGroup">
             <select class="form-select" name = "type">

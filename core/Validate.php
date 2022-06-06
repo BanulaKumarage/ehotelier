@@ -170,7 +170,7 @@ class Validate
         if ($startDate >= $endDate) {
             $this->addError(["Check-in Date must be after the Check-out Date"]);
         }
-        if ($startDate <= date('Y-m-d')) {
+        if ($startDate < date('Y-m-d')) {
             $this->addError(["Check-in Date must be after the Current Date " . date('Y/m/d')]);
         }
     }

@@ -36,6 +36,9 @@
         </form>
     </div>
   </div>
+  <span class="errors">
+    <?php echo $this->message ?? ""; ?>
+  </span>
   </div>
  
   <script src="<?=SROOT?>js/signup_login.js"></script>

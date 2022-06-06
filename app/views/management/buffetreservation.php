@@ -105,8 +105,8 @@
                 <p>Customer ID : <?= $reqs->customer_id ?> </p>
                 <p>Capacity : <?= $reqs->capacity ?> </p>
                 <p>Date : <?= $reqs->date ?></p>
-                <p>Slot : <?= $reqs->slot ?></p>
-                <p>Status : <?= $reqs->status ?> </p>
+                <p>Slot : <?= ucwords($reqs->slot) ?></p>
+                <p>Status : <?= ucwords($reqs->status) ?> </p>
                 <form action="<?= SROOT ?>ReservationHandler/changebuffetreservation_status/<?= $reqs->id ?>" method="post">
                     <select class="form-select" name="buffet_res_status" style="max-width:90%;">
                         <option value="" disabled selected> Select Status</option>

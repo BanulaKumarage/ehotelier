@@ -59,7 +59,7 @@
             <div class="w3-container w3-white"> <br>
                 <form action='<?=SROOT?>CustomerRequestHandler/updateRequest' method='post'>
                     <p> Reservation ID : <?php echo $customerRequest[0]->{"reservation_id"} ?></p>
-                    <p> Current Status : <?php echo $customerRequest[0]->{"status"} ?></p>
+                    <p> Current Status : <?php echo ucwords($customerRequest[0]->{"status"}) ?></p>
                     <p> Request Description : <?php echo $customerRequest[0]->{"description"} ?> </p> 
                     <input type='hidden'  name='customer_req_id' value='<?php echo $customerRequest[0]->{'id'} ?>'>
                     <select class="form-select" name='requestStatus' id='request' onchange= 'this.form.submit()' style="max-width:90%;">
