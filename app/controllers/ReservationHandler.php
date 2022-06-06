@@ -53,7 +53,7 @@ class ReservationHandler extends Controller
                     'is_numeric' => true
                 ]
             ]);
-            $validation->currentDatecheck($_POST['date']);
+            $validation->buffetDateCheck($_POST['date']);
 
             if ($validation->passed()) {
                 $this->Buffet_reservationModel->reserve($_POST);

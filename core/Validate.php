@@ -175,6 +175,13 @@ class Validate
         }
     }
 
+    public function buffetDateCheck($date){
+        date_default_timezone_set('Asia/Colombo');
+        if ($date <= date('Y-m-d')) {
+            $this->addError(["Date must be after the Current Date " . date('Y/m/d')]);
+        }
+    }
+
     public function currentDatecheck($date)
     {
         date_default_timezone_set('Asia/Colombo');
