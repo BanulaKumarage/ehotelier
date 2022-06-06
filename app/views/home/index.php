@@ -60,7 +60,7 @@
         
             <h1> Welcome to eHotelier </h1> <br> <br>
             <div>
-                <ul>
+                <ul class="p-0">
                 <li><a href="<?=SROOT?>CustomerRegister/login">Customer Login</a></li>
                     <li><a href="<?=SROOT?>CustomerRegister/signup">Join now</a></li>
                     <li><a href="<?=SROOT?>EmployeeRegister/login">Employee Login</a></li>
