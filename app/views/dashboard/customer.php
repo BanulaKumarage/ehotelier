@@ -30,6 +30,10 @@
 
         .alert-dismissible .btn-close {
            padding: 0.3em;
+           position: absolute;
+            right: 0;
+            z-index: 2;
+            padding: 1.25rem 1rem;
         }
     </style>
 

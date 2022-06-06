@@ -10,7 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -22,6 +30,10 @@
 
         .alert-dismissible .btn-close {
            padding: 0.3em;
+           position: absolute;
+            right: 0;
+            z-index: 2;
+            padding: 1.25rem 1rem;
         }
     </style>
 
@@ -46,7 +58,6 @@
             </div>
         <?php } ?>
         
-            <br>
             <h1> Welcome to eHotelier </h1> <br> <br>
             <div>
                 <ul>
@@ -54,6 +65,10 @@
                     <li><a href="<?=SROOT?>CustomerRegister/signup">Join now</a></li>
                     <li><a href="<?=SROOT?>EmployeeRegister/login">Employee Login</a></li>
                 </ul>
+            </div>
+            <br> <br>
+            <div class="about">
+                <p>"Single Gateway To Manage Everything"</p>
             </div>
         </div>
     </div>
