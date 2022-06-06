@@ -69,20 +69,20 @@
     
     <input type="text" id="input" onkeyup="search()" style="margin-left:25px; margin-bottom:20px; text-align: center;" placeholder="Search by room number">
 
-    <div class="w3-content" style="max-width:1532px;">
+    <!--<div class="w3-content" style="max-width:1532px;">-->
         <div class="w3-row-padding w3-padding-16" id="rooms">
 
         <?php if ($this->roomDetails) {
         foreach ($this->roomDetails as $roomDetail){ ?>
             <div class="w3-third w3-margin-bottom">
               <?php if($roomDetail->{'type'} == "Deluxe") { ?> 
-              <img src="<?=SROOT?>images/deluxe.jpg" alt="Deluxe" style="width:100%">
+              <img src="<?=SROOT?>images/deluxe2.jpg" alt="Deluxe" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Premium Deluxe"){ ?>
               <img src="<?=SROOT?>images/premiumdeluxe.jpg" alt="Premium Deluxe" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Quad"){ ?>
-              <img src="<?=SROOT?>images/quad.jpg" alt="Quad" style="width:100%">
+              <img src="<?=SROOT?>images/quad2.jpg" alt="Quad" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Single"){ ?>
-              <img src="<?=SROOT?>images/single.jpg" alt="Single" style="width:100%">
+              <img src="<?=SROOT?>images/single4.jpg" alt="Single" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Suite"){ ?>
               <img src="<?=SROOT?>images/suite.jpg" alt="Suite" style="width:100%">
               <?php } elseif($roomDetail->{'type'} == "Triple"){ ?>
@@ -96,13 +96,14 @@
                 <h6 class="w3-opacity"> Last Service : <?php echo $roomDetail->{'last_service'} ?>  </h6>
               </div>
             </div>
-        <?php }} else {?>
+        <?php } 
+        } else {?>
             <h2 style="font-family: 'Ubuntu', sans-serif; margin-left:20px; color:white">No Rooms Available</h2>
         <?php }?>      
    
 
         </div>
-    </div>
+    <!--</div>-->
 
 
 </body>
