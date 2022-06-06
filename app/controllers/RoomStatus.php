@@ -24,6 +24,8 @@ class RoomStatus extends Controller {
 
     public function addRoomAction(){
         if ($_POST){
+            date_default_timezone_set('Asia/Colombo');
+            $_POST['last_service'] = date('Y-m-d H:i:s');
             $types = [
                 'Suite'=>[4,35000],
                 'Quad'=>[4,33000],
