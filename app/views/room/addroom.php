@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
-                <img src="<?=SROOT?>images/single.jpg" alt="Single" style="width:100%">
+                <img src="<?=SROOT?>images/single2.jpg" alt="Single" style="width:100%">
                 <div class="w3-container w3-white">
                   <p><b>Single</b></p>
                 </div>
