@@ -69,7 +69,7 @@
     
     <input type="text" id="input" onkeyup="search()" style="margin-left:25px; margin-bottom:20px; text-align: center;" placeholder="Search by room number">
 
-    <!--<div class="w3-content" style="max-width:1532px;">-->
+    <div class="w3-content" style="max-width:1532px;">
         <div class="w3-row-padding w3-padding-16" id="rooms">
 
         <?php if ($this->roomDetails) {
@@ -92,7 +92,7 @@
                 <h3> Room NO: <?php echo $roomDetail->{'id'} ?> </h3>
                 <h6 class="w3-opacity"> Capacity : <?php echo $roomDetail->{'capacity'} ?></h6>
                 <h6 class="w3-opacity"> Type : <?php echo $roomDetail->{'type'} ?> </h6>
-                <h6 class="w3-opacity"> Status : <?php echo $roomDetail->{'status'} ?> </h6>
+                <h6 class="w3-opacity"> Status : <?php echo ucwords($roomDetail->{'status'}) ?> </h6>
                 <h6 class="w3-opacity"> Last Service : <?php echo $roomDetail->{'last_service'} ?>  </h6>
               </div>
             </div>
@@ -103,7 +103,7 @@
    
 
         </div>
-    <!--</div>-->
+    </div>
 
 
 </body>

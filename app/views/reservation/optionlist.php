@@ -64,7 +64,7 @@
               <?php } elseif($options[0]->type == "Quad"){ ?>
               <img src="<?=SROOT?>images/quad.jpg" alt="Quad" style="width:100%">
               <?php } elseif($options[0]->type == "Single"){ ?>
-              <img src="<?=SROOT?>images/single.jpg" alt="Single" style="width:100%">
+              <img src="<?=SROOT?>images/single2.jpg" alt="Single" style="width:100%">
               <?php } elseif($options[0]->type == "Suite"){ ?>
               <img src="<?=SROOT?>images/suite.jpg" alt="Suite" style="width:100%">
               <?php } elseif($options[0]->type == "Triple"){ ?>

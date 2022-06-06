@@ -94,7 +94,7 @@ $count = 0 ?>
                                         <?php echo $employee['name']; ?>
                                     </div>
                                     <div class="col col-xl-4 text-center mb-1">
-                                        <?php echo $employee['status']; ?>
+                                        <?php echo ucwords($employee['status']); ?>
                                     </div>
                                 <div class="col col-xl-2 text-center mb-1">
                                 <form action="<?=SROOT?>CustomerRequestHandler/assignRequest" method="post">
