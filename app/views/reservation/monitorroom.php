@@ -69,7 +69,7 @@
     
     <input type="text" id="input" onkeyup="search()" style="margin-left:25px; margin-bottom:20px; text-align: center;" placeholder="Search by room number">
 
-    <!--<div class="w3-content" style="max-width:1532px;">-->
+    <div class="w3-content" style="max-width:1532px;">
         <div class="w3-row-padding w3-padding-16" id="rooms">
 
         <?php if ($this->roomDetails) {
@@ -103,7 +103,7 @@
    
 
         </div>
-    <!--</div>-->
+    </div>
 
 
 </body>
