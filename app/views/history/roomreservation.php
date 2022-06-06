@@ -84,8 +84,8 @@
                         <p>Room IDs : <?= $reqs->room_ids ?> </p>
                         <p>Check-in Date : <?= $reqs->check_in_date ?></p>
                         <p>Check-out Date : <?= $reqs->check_out_date ?></p>
-                        <p>Type : <?= $reqs->type ?> </p>
-                        <p>Status : <?= $reqs->status ?></p>
+                        <p>Type : <?= ucwords($reqs->type) ?> </p>
+                        <p>Status : <?= ucwords($reqs->status) ?></p>
                     </div>
                 </div>
 

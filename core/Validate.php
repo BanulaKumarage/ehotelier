@@ -86,6 +86,12 @@ class Validate
                             $check = $this->_db->query("SELECT * FROM {$table} WHERE id = ? and status != 'closed'", [$value]);
                             if (!$check->count()) {
                                 $this->addError(["Enter a valid {$display}", $item]);
+                            }else {
+                                $roomReservation = new Room_reservation();
+                                $roomReservation->findById($value);
+                                if (Customer::currentLoggedInCustomer()->id !== $roomReservation->customer_id){
+                                    $this->addError(["Enter a valid {$display}", $item]);
+                                }
                             }
                             break;
                     }

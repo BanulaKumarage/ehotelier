@@ -89,8 +89,8 @@
                     <p>Reservation ID : <?= $reqs->id ?> </p>
                     <p>Capacity : <?= $reqs->capacity ?> </p>
                     <p>Date : <?= $reqs->date ?></p>
-                    <p>Slot : <?= $reqs->slot ?></p>
-                    <p>Status : <?= $reqs->status ?> </p>
+                    <p>Slot : <?= ucwords($reqs->slot) ?></p>
+                    <p>Status : <?= ucwords($reqs->status) ?> </p>
                 </div>
             </div>
 
